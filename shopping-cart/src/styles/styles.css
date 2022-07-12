@@ -1,3 +1,58 @@
 body {
-    margin: 0;
+  margin: 0;
+  background-color: #f2f2f2;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 22px;
+  padding-left: 22px;
+  height: 57px;
+  background-color: #ffd9b3;
+}
+
+.logo {
+  display: inline-block;
+  width: auto;
+}
+
+.logo > span {
+  display: block;
+}
+
+.logo__text--red {
+  color: red;
+}
+
+.logo__text--white {
+  color: white;
+}
+
+.logo__text--center {
+  text-align: center;
+}
+
+.search-bar {
+  display: inline-block;
+}
+
+.search-bar__box {
+  border: none;
+  border-radius: 7px;
+  box-shadow: none;
+}
+
+.search-bar > i {
+  margin-right: 6px;
+}
+
+.header-buttons {
+  display: inline-block;
+}
+
+.header-buttons > i:nth-child(1) {
+    margin-right: 18px;
 }
