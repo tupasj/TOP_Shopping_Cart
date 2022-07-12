@@ -54,5 +54,31 @@ header {
 }
 
 .header-buttons > i:nth-child(1) {
-    margin-right: 18px;
+  margin-right: 18px;
+}
+
+/* Navigation */
+nav {
+  padding-top: 6px;
+  padding-bottom: 11px;
+  padding-left: 22px;
+  height: 18px;
+  text-align: center;
+  background-color: #ffe6cc;
+}
+
+nav > a {
+  margin-right: 15px;
+  margin-left: 15px;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: black;
+}
+
+nav > a:hover {
+    text-decoration: underline;
+}
+
+.nav__anchor--red {
+    color: #ff3333;
 }
