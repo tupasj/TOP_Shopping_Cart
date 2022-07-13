@@ -1,10 +1,10 @@
 const Navigation = () => {
     return (
         <nav>
-            <a href="#">Category</a>
-            <a href="#">Brand</a>
-            <a href="#">Price</a>
-            <a href="#" className="nav__anchor--red">Special offers</a>
+            <a href="#">Men</a>
+            <a href="#">Women</a>
+            <a href="#">Brand new</a>
+            <a href="#" className="nav__anchor--red">On sale</a>
         </nav>
     )
 }

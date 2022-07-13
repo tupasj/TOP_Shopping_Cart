@@ -1,0 +1,100 @@
+{
+  "MensClothing": [
+    {
+      "id": "1",
+      "name": "Blue Suit",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/blue-suit.jpg",
+      "alt": "man in blue suit",
+      "rating": "4.5",
+      "price": "200"
+    },
+    {
+      "id": "2",
+      "name": "",
+      "src": "",
+      "alt": "",
+      "rating": "",
+      "price": ""
+    },
+    {
+      "id": "3",
+      "name": "",
+      "src": "",
+      "alt": "",
+      "rating": "",
+      "price": ""
+    },
+    {
+      "id": "4",
+      "name": "",
+      "src": "",
+      "alt": "",
+      "rating": "",
+      "price": ""
+    },
+    {
+      "id": "5",
+      "name": "",
+      "src": "",
+      "alt": "",
+      "rating": "",
+      "price": ""
+    },
+    {
+      "id": "6",
+      "name": "",
+      "src": "",
+      "alt": "",
+      "rating": "",
+      "price": ""
+    },
+    {
+      "id": "7",
+      "name": "",
+      "src": "",
+      "alt": "",
+      "rating": "",
+      "price": ""
+    },
+    {
+      "id": "8",
+      "name": "",
+      "src": "",
+      "alt": "",
+      "rating": "",
+      "price": ""
+    },
+    {
+      "id": "9",
+      "name": "",
+      "src": "",
+      "alt": "",
+      "rating": "",
+      "price": ""
+    },
+    {
+      "id": "10",
+      "name": "",
+      "src": "",
+      "alt": "",
+      "rating": "",
+      "price": ""
+    },
+    {
+      "id": "11",
+      "name": "",
+      "src": "",
+      "alt": "",
+      "rating": "",
+      "price": ""
+    },
+    {
+      "id": "12",
+      "name": "",
+      "src": "",
+      "alt": "",
+      "rating": "",
+      "price": ""
+    }
+  ]
+}

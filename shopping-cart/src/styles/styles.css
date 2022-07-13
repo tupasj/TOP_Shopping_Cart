@@ -7,6 +7,8 @@
   --peach-light: #ffe6cc;
   --red: #ff3333;
   --white: #ffffff;
+  --slate-light-gray: #fbfafa;
+  --dark-gray: #595858;
 }
 
 * {
@@ -120,7 +122,18 @@ main {
   padding-top: 9px;
   padding-bottom: 9px;
   border-bottom: 2px solid rgba(128, 128, 128, 0.25);
-  background-color: #fbfafa;
-  color: #595858;
+  background-color: var(--slate-light-gray);
+  color: var(--dark-gray);
   font-weight: 600;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.product {
+  margin: 9px 19px;
+  background-color: var(--slate-light-gray);
 }
