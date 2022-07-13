@@ -9,6 +9,7 @@
   --white: #ffffff;
   --slate-light-gray: #fbfafa;
   --dark-gray: #595858;
+  --yellow: #f2d537;
 }
 
 * {
@@ -22,6 +23,15 @@ html {
 body {
   margin: 0;
   background-color: var(--light-gray);
+}
+
+/* Font Awesome icons */
+.fa-solid.fa-star {
+  color: var(--yellow);
+}
+
+.fa-solid.fa-star-half {
+  color: var(--yellow);
 }
 
 /* Header */

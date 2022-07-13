@@ -1,4 +1,5 @@
 import MensClothing from "../../assets/data/MensClothing.json";
+import { Rating } from "./Rating";
 
 const Products = () => {
   return (
@@ -10,7 +11,9 @@ const Products = () => {
           alt={MensClothing.Set1[0].alt}
         ></img>
         <div className="product__name">{MensClothing.Set1[0].name}</div>
-        <div className="product__rating">{MensClothing.Set1[0].rating}</div>
+        <div className="product__rating">
+          <Rating rating={MensClothing.Set1[0].rating} />
+        </div>
         <div className="product__price">${MensClothing.Set1[0].price}</div>
         <div className="product__buttons">
           <button>View</button>
