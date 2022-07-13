@@ -1,10 +1,10 @@
-import { Sidenav } from "./Sidenav";
+import { CategoryFilter } from "./CategoryFilter";
 import { Products } from "./Products";
 
 const Main = () => {
   return (
     <main>
-      <Sidenav />
+      <CategoryFilter />
       <Products />
     </main>
   );
