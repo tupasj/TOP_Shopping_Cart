@@ -3,98 +3,98 @@
     {
       "id": "1",
       "name": "Blue Suit",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/blue-suit.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/blue-suit.jpg",
       "alt": "man in blue suit",
       "rating": 4.5,
-      "price": "200"
+      "price": 200
     },
     {
       "id": "2",
-      "name": "",
-      "src": "",
-      "alt": "",
-      "rating": "",
-      "price": ""
+      "name": "Black Leather Jacket",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images//MensClothing/black-leather-jacket.jpg",
+      "alt": "black leather jacket",
+      "rating": 4.0,
+      "price": 125
     },
     {
       "id": "3",
-      "name": "",
-      "src": "",
-      "alt": "",
-      "rating": "",
-      "price": ""
+      "name": "Black Suit",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images//MensClothing/black-suit.jpg",
+      "alt": "black suit",
+      "rating": 5,
+      "price": 300
     },
     {
       "id": "4",
-      "name": "",
-      "src": "",
-      "alt": "",
-      "rating": "",
-      "price": ""
+      "name": "Brown Jacket",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images//MensClothing/brown-jacket.jpg",
+      "alt": "brown jacket",
+      "rating": 3.5,
+      "price": 75
     },
     {
       "id": "5",
-      "name": "",
-      "src": "",
-      "alt": "",
-      "rating": "",
-      "price": ""
+      "name": "Brown Leather Coat",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images//MensClothing/brown-leather-coat.jpg",
+      "alt": "brown leather coat",
+      "rating": 4,
+      "price": 130
     },
     {
       "id": "6",
-      "name": "",
-      "src": "",
-      "alt": "",
-      "rating": "",
-      "price": ""
+      "name": "Dark Gray Jacket",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images//MensClothing/dark-gray-jacket.jpg",
+      "alt": "dark gray jacket",
+      "rating": 4.5,
+      "price": 115
     },
     {
       "id": "7",
-      "name": "",
-      "src": "",
-      "alt": "",
-      "rating": "",
-      "price": ""
+      "name": "Denim Jacket",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images//MensClothing/denim-jacket.jpg",
+      "alt": "denim jacket",
+      "rating": 3.5,
+      "price": 90
     },
     {
       "id": "8",
-      "name": "",
-      "src": "",
-      "alt": "",
-      "rating": "",
-      "price": ""
+      "name": "Light Blue Suit",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images//MensClothing/light-blue-suit.jpg",
+      "alt": "light blue suit",
+      "rating": 4.0,
+      "price": 85
     },
     {
       "id": "9",
-      "name": "",
-      "src": "",
-      "alt": "",
-      "rating": "",
-      "price": ""
+      "name": "Suspenders",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images//MensClothing/suspenders.jpg",
+      "alt": "suspenders",
+      "rating": 4.0,
+      "price": 45
     },
     {
       "id": "10",
-      "name": "",
-      "src": "",
-      "alt": "",
-      "rating": "",
-      "price": ""
+      "name": "Turqoise Long Sleeve Shirt",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images//MensClothing/turqoise-long-sleeve-shirt.jpg",
+      "alt": "turqoise long sleeve shirt",
+      "rating": 4,
+      "price": 35
     },
     {
       "id": "11",
-      "name": "",
-      "src": "",
-      "alt": "",
-      "rating": "",
-      "price": ""
+      "name": "Tuxedo",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images//MensClothing/tuxedo.jpg",
+      "alt": "tuxedo",
+      "rating": 4.5,
+      "price": 150
     },
     {
       "id": "12",
-      "name": "",
-      "src": "",
-      "alt": "",
-      "rating": "",
-      "price": ""
+      "name": "Winter Jacket",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images//MensClothing/winter-jacket.jpg",
+      "alt": "winter jacket",
+      "rating": 4.5,
+      "price": 130
     }
   ]
 }
