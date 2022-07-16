@@ -1,6 +1,6 @@
-import { Header } from './components/Header/Header.js';
-import { Navigation } from './components/Navigation/Navigation.js';
-import { Main } from './components/Main/Main.js';
+import { Header } from './components/Header';
+import { Navigation } from './components/Navigation';
+import { Main } from './components/Main';
 
 const App = () => {
     return (
