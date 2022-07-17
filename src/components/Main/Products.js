@@ -1,7 +1,9 @@
 import MensClothing from "../../assets/data/MensClothing.json";
 import { Rating } from "./Rating";
 
-const Products = () => {
+const Products = (props) => {
+  const type = props.type;
+  
   return (
     <div className="products">
       <div className="product">

@@ -1,9 +1,11 @@
+import { Products } from "../Main/Products";
+
 const Men = () => {
-    return (
-        <div>
-            <p>Hello from Men</p>
-        </div>
-    )
-}
+  return (
+    <>
+      <Products type="men" />
+    </>
+  );
+};
 
 export { Men };
