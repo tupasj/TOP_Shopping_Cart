@@ -4,7 +4,6 @@ import { Rating } from "./Rating";
 
 const Products = (props) => {
   const type = props.type;
-  const filteredClothes = [];
   let filter;
   if (type !== "men" && type !== "women") {
     filter = type;
@@ -23,6 +22,13 @@ const Products = (props) => {
   };
 
   let clothes = getProductType(type);
+
+  if (filter === "brandNew") {
+    clothes = clothes.filter(element => element.brandNew);
+  } else if (filter === "onSale") {
+    clothes = clothes.filter(element => element.salePrice);
+  }
+
   let products = clothes.map((element) => {
     return (
       <div key={element.id} className="product">
@@ -37,7 +43,7 @@ const Products = (props) => {
         </div>
         <div className="product__price">
           {element.salePrice ?
-          <span>${element.salePrice}<span className="product__price--line-through">${element.price}</span></span>
+          <>${element.salePrice}<span className="product__price--line-through">${element.price}</span></>
           :
           <span>${element.price}</span>}
         </div>
