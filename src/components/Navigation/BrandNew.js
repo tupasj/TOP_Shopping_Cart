@@ -1,9 +1,11 @@
+import { Products } from "../Main/Products";
+
 const BrandNew = () => {
-    return (
-        <div>
-            <p>Hello from BrandNew</p>
-        </div>
-    )
-}
+  return (
+    <>
+      <Products type="brandNew" />
+    </>
+  );
+};
 
 export { BrandNew };

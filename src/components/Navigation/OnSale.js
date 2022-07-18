@@ -1,9 +1,11 @@
+import { Products } from "../Main/Products";
+
 const OnSale = () => {
-    return (
-        <div>
-            <p>Hello from OnSale</p>
-        </div>
-    )
-}
+  return (
+    <>
+      <Products type="onSale" />
+    </>
+  );
+};
 
 export { OnSale };

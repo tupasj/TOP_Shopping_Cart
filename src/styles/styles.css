@@ -162,3 +162,10 @@ main {
   margin-left: 3px;
   margin-right: 3px;
 }
+
+.product__price--line-through {
+  margin-left: 4px;
+  text-decoration: line-through;
+  font-size: 0.7rem;
+  opacity: 0.5;
+}

@@ -3,14 +3,13 @@ import WomensClothing from "../../assets/data/WomensClothing.json";
 import { Rating } from "./Rating";
 
 const Products = (props) => {
-  const type = props.type; // men and women
-  const filter = props.filter; //brandNew and onSale
-  //If type == 'men', render all mens clothing
-  //Else if type == 'women', render all womens clothing
-  //Else if type == 'brandNew', render all clothing that's brand new
-  //Else if type == 'onSale', render all clothing that's on sale
+  const type = props.type;
+  const filteredClothes = [];
+  let filter;
+  if (type !== "men" && type !== "women") {
+    filter = type;
+  }
 
-  let typeIsFilter = false;
   const getProductType = (type) => {
     let clothes;
     if (type === "men") {
@@ -19,7 +18,6 @@ const Products = (props) => {
       clothes = WomensClothing.Set1;
     } else {
       clothes = MensClothing.Set1.concat(WomensClothing.Set1);
-      typeIsFilter = true;
     }
     return clothes;
   };
@@ -37,7 +35,12 @@ const Products = (props) => {
         <div className="product__rating">
           <Rating rating={element.rating} />
         </div>
-        <div className="product__price">${element.price}</div>
+        <div className="product__price">
+          {element.salePrice ?
+          <span>${element.salePrice}<span className="product__price--line-through">${element.price}</span></span>
+          :
+          <span>${element.price}</span>}
+        </div>
         <div className="product__buttons">
           <button>View</button>
           <button>Add to wishlist</button>
@@ -46,15 +49,7 @@ const Products = (props) => {
     );
   });
 
-  //If filter == true, loop through both JSON files with the props.filter as the specific filter
-  //const filteredData == mensClothing.json + womensClothing.json arrays joined into one array -> filtered for props.filter. Then after obtaining the array map it.
-  //Else loop through the JSON file matching props.type
-  //const unfilteredData == map the correct data which is props.type.
-  return (
-    <div className="products">
-      { products }
-    </div>
-  )
+  return <div className="products">{products}</div>;
 };
 
 export { Products };
