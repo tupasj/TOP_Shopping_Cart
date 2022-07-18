@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { App } from "./App";
 
 const Router = () => {
@@ -6,6 +6,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/*" element={<App />} />
+        <Route path="/" element={<Navigate replace to="/men" />} />
       </Routes>
     </BrowserRouter>
   );

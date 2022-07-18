@@ -31,7 +31,7 @@ const Products = (props) => {
 
   let products = clothes.map((element) => {
     return (
-      <div key={element.id} className="product">
+      <div key={element.name} className="product">
         <img
           className="product__image"
           src={element.src}
