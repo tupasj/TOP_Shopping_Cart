@@ -1,9 +1,11 @@
+import { Products } from "../Main/Products";
+
 const Women = () => {
-    return (
-        <div>
-            <p>Hello from Women</p>
-        </div>
-    )
-}
+  return (
+    <>
+      <Products type="women" />
+    </>
+  );
+};
 
 export { Women };

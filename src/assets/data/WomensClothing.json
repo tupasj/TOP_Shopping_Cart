@@ -3,7 +3,7 @@
         {
             "id": "1",
             "name": "Black Blazer",
-            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/WomensClothing/black-blazer.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/black-blazer.jpg",
             "alt": "black blazer",
             "rating": 4.5,
             "price": 170,
@@ -12,7 +12,7 @@
         {
             "id": "2",
             "name": "Black Dress",
-            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/WomensClothing/black-dress.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/black-dress.jpg",
             "alt": "black dress",
             "rating": 4.5,
             "price": 180,
@@ -22,7 +22,7 @@
         {
             "id": "3",
             "name": "Black Off-Shoulder Shirt",
-            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/WomensClothing/black-off-shoulder-shirt.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/black-off-shoulder-shirt.jpg",
             "alt": "black off-shoulder shirt",
             "rating": 3.5,
             "price": 70,
@@ -31,7 +31,7 @@
         {
             "id": "4",
             "name": "Blue Blazer",
-            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/WomensClothing/blue-blazer.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/blue-blazer.jpg",
             "alt": "blue blazer",
             "rating": 4.0,
             "price": 130,
@@ -41,7 +41,7 @@
         {
             "id": "5",
             "name": "Checkered Coat",
-            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/WomensClothing/checkered-coat.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/checkered-coat.jpg",
             "alt": "checkered coat",
             "rating": 3.5,
             "price": 90,
@@ -50,7 +50,7 @@
         {
             "id": "6",
             "name": "Checkered Pants",
-            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/WomensClothing/checkered-pants.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/checkered-pants.jpg",
             "alt": "checkered-pants",
             "rating": 4.0,
             "price": 85,
@@ -60,7 +60,7 @@
         {
             "id": "7",
             "name": "Flower Dress",
-            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/WomensClothing/flower-dress.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/flower-dress.jpg",
             "alt": "flower dress",
             "rating": 4.0,
             "price": 105,
@@ -69,7 +69,7 @@
         {
             "id": "8",
             "name": "Red Coat",
-            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/WomensClothing/red-coat.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/red-coat.jpg",
             "alt": "red coat",
             "rating": 4.0,
             "price": 110,
@@ -79,7 +79,7 @@
         {
             "id": "9",
             "name": "White Dress Shirt",
-            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/WomensClothing/white-dress-shirt.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/white-dress-shirt.jpg",
             "alt": "white dress shirt",
             "rating": 5.0,
             "price": 75,
@@ -88,7 +88,7 @@
         {
             "id": "10",
             "name": "White Long Sleeve Shirt",
-            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/WomensClothing/white-long-sleeve-shirt.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/white-long-sleeve-shirt.jpg",
             "alt": "white long sleeve shirt",
             "rating": 4.0,
             "price": 70,
@@ -98,7 +98,7 @@
         {
             "id": "11",
             "name": "White Off-Shoulder Dress",
-            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/WomensClothing/white-off-shoulder-dress.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/white-off-shoulder-dress.jpg",
             "alt": "white off shoulder dress",
             "rating": 4.5,
             "price": 135,
@@ -107,7 +107,7 @@
         {
             "id": "12",
             "name": "Red Dress",
-            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/WomensClothing/red-dress.jpg",
+            "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/red-dress.jpg",
             "alt": "red dress",
             "rating": 4.0,
             "price": 125,

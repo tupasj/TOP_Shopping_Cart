@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "Blue Suit",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/blue-suit.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/MensClothing/blue-suit.jpg",
       "alt": "man in blue suit",
       "rating": 4.5,
       "price": 200,
@@ -13,7 +13,7 @@
     {
       "id": "2",
       "name": "Black Leather Jacket",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/black-leather-jacket.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/MensClothing/black-leather-jacket.jpg",
       "alt": "black leather jacket",
       "rating": 4.0,
       "price": 125,
@@ -22,7 +22,7 @@
     {
       "id": "3",
       "name": "Black Suit",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/black-suit.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/MensClothing/black-suit.jpg",
       "alt": "black suit",
       "rating": 5,
       "price": 300,
@@ -32,7 +32,7 @@
     {
       "id": "4",
       "name": "Brown Jacket",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/brown-jacket.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/MensClothing/brown-jacket.jpg",
       "alt": "brown jacket",
       "rating": 3.5,
       "price": 75,
@@ -41,7 +41,7 @@
     {
       "id": "5",
       "name": "Brown Leather Coat",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/brown-leather-coat.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/MensClothing/brown-leather-coat.jpg",
       "alt": "brown leather coat",
       "rating": 4,
       "price": 130,
@@ -51,7 +51,7 @@
     {
       "id": "6",
       "name": "Dark Gray Jacket",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/dark-gray-jacket.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/MensClothing/dark-gray-jacket.jpg",
       "alt": "dark gray jacket",
       "rating": 4.5,
       "price": 115,
@@ -60,7 +60,7 @@
     {
       "id": "7",
       "name": "Denim Jacket",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/denim-jacket.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/MensClothing/denim-jacket.jpg",
       "alt": "denim jacket",
       "rating": 3.5,
       "price": 90,
@@ -70,7 +70,7 @@
     {
       "id": "8",
       "name": "Light Blue Suit",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/light-blue-suit.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/MensClothing/light-blue-suit.jpg",
       "alt": "light blue suit",
       "rating": 4.0,
       "price": 85,
@@ -79,7 +79,7 @@
     {
       "id": "9",
       "name": "Suspenders",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/suspenders.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/MensClothing/suspenders.jpg",
       "alt": "suspenders",
       "rating": 4.0,
       "price": 45,
@@ -89,7 +89,7 @@
     {
       "id": "10",
       "name": "Turqoise Long Sleeve Shirt",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/turqoise-long-sleeve-shirt.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/MensClothing/turquoise-long-sleeve-shirt.jpg",
       "alt": "turqoise long sleeve shirt",
       "rating": 4,
       "price": 35,
@@ -98,7 +98,7 @@
     {
       "id": "11",
       "name": "Tuxedo",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/tuxedo.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/MensClothing/tuxedo.jpg",
       "alt": "tuxedo",
       "rating": 4.5,
       "price": 150,
@@ -108,7 +108,7 @@
     {
       "id": "12",
       "name": "Winter Jacket",
-      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/shopping-cart/src/assets/images/MensClothing/winter-jacket.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/MensClothing/winter-jacket.jpg",
       "alt": "winter jacket",
       "rating": 4.5,
       "price": 130,

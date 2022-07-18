@@ -118,7 +118,6 @@ nav > a:hover {
 main {
   display: grid;
   grid-template-columns: 1fr 5fr;
-  height: calc(100vh - var(--top-section-height));
 }
 
 .category-filter {
