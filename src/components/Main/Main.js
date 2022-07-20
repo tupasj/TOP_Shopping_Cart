@@ -1,7 +1,6 @@
 import { CategoryFilter } from "./CategoryFilter";
-// import { Products } from "./Products";
 import { Routes, Route } from "react-router-dom";
-import { Men, Women, BrandNew, OnSale } from "../Navigation";
+import { Men, Women, BrandNew, OnSale, ProductView } from "../Navigation";
 
 const Main = () => {
   return (
@@ -12,6 +11,7 @@ const Main = () => {
         <Route path="/women" element={<Women />} />
         <Route path="/brand-new" element={<BrandNew />} />
         <Route path="/on-sale" element={<OnSale />} />
+        <Route path="/product-view/:paramId" element={<ProductView />} />
       </Routes>
     </main>
   );

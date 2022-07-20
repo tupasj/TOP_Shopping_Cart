@@ -1,6 +1,7 @@
 import MensClothing from "../../assets/data/MensClothing.json";
 import WomensClothing from "../../assets/data/WomensClothing.json";
 import { Rating } from "./Rating";
+import { Link, Outlet } from "react-router-dom";
 
 const Products = (props) => {
   const type = props.type;
@@ -31,7 +32,7 @@ const Products = (props) => {
 
   let products = clothes.map((element) => {
     return (
-      <div key={element.name} className="product">
+      <div key={element.id} className="product">
         <img
           className="product__image"
           src={element.src}
@@ -48,7 +49,8 @@ const Products = (props) => {
           <span>${element.price}</span>}
         </div>
         <div className="product__buttons">
-          <button>View</button>
+          <Link to={`/product-view/${element.id}`}>View</Link>
+          <Outlet />
           <button>Add to wishlist</button>
         </div>
       </div>

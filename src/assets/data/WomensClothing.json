@@ -1,7 +1,7 @@
 {
     "Set1": [
         {
-            "id": "1",
+            "id": "13",
             "name": "Black Blazer",
             "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/black-blazer.jpg",
             "alt": "black blazer",
@@ -10,7 +10,7 @@
             "brandNew": true
         },
         {
-            "id": "2",
+            "id": "14",
             "name": "Black Dress",
             "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/black-dress.jpg",
             "alt": "black dress",
@@ -20,7 +20,7 @@
             "brandNew": false
         },
         {
-            "id": "3",
+            "id": "15",
             "name": "Black Off-Shoulder Shirt",
             "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/black-off-shoulder-shirt.jpg",
             "alt": "black off-shoulder shirt",
@@ -29,7 +29,7 @@
             "brandNew": true
         },
         {
-            "id": "4",
+            "id": "16",
             "name": "Blue Blazer",
             "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/blue-blazer.jpg",
             "alt": "blue blazer",
@@ -39,7 +39,7 @@
             "brandNew": false
         },
         {
-            "id": "5",
+            "id": "17",
             "name": "Checkered Coat",
             "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/checkered-coat.jpg",
             "alt": "checkered coat",
@@ -48,7 +48,7 @@
             "brandNew": true
         },
         {
-            "id": "6",
+            "id": "18",
             "name": "Checkered Pants",
             "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/checkered-pants.jpg",
             "alt": "checkered-pants",
@@ -58,7 +58,7 @@
             "brandNew": false
         },
         {
-            "id": "7",
+            "id": "19",
             "name": "Flower Dress",
             "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/flower-dress.jpg",
             "alt": "flower dress",
@@ -67,7 +67,7 @@
             "brandNew": true
         },
         {
-            "id": "8",
+            "id": "20",
             "name": "Red Coat",
             "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/red-coat.jpg",
             "alt": "red coat",
@@ -77,7 +77,7 @@
             "brandNew": false
         },
         {
-            "id": "9",
+            "id": "21",
             "name": "White Dress Shirt",
             "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/white-dress-shirt.jpg",
             "alt": "white dress shirt",
@@ -86,7 +86,7 @@
             "brandNew": true
         },
         {
-            "id": "10",
+            "id": "22",
             "name": "White Long Sleeve Shirt",
             "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/white-long-sleeve-shirt.jpg",
             "alt": "white long sleeve shirt",
@@ -96,7 +96,7 @@
             "brandNew": false
         },
         {
-            "id": "11",
+            "id": "23",
             "name": "White Off-Shoulder Dress",
             "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/white-off-shoulder-dress.jpg",
             "alt": "white off shoulder dress",
@@ -105,7 +105,7 @@
             "brandNew": true
         },
         {
-            "id": "12",
+            "id": "24",
             "name": "Red Dress",
             "src": "https://cdn.jsdelivr.net/gh/tupasj/TOP_Shopping_Cart/src/assets/images/WomensClothing/red-dress.jpg",
             "alt": "red dress",
