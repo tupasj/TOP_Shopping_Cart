@@ -49,9 +49,9 @@ const Products = (props) => {
           <span>${element.price}</span>}
         </div>
         <div className="product__buttons">
-          <Link to={`/product-view/${element.id}`}>View</Link>
-          <Outlet />
+          <button><Link to={`/product-view/${element.id}`}>View</Link></button>
           <button>Add to wishlist</button>
+          <Outlet />
         </div>
       </div>
     );
