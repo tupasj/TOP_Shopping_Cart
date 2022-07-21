@@ -2,12 +2,20 @@ import { useParams } from "react-router-dom";
 import MensClothing from "../../assets/data/MensClothing.json";
 import WomensClothing from "../../assets/data/WomensClothing.json";
 
-const ProductView = () => {
+const ProductView = (props) => {
+  const itemCount = props.itemCount;
+  const setItemCount = props.setItemCount;
   const urlParam = useParams();
   const allProducts = MensClothing.Set1.concat(WomensClothing.Set1);
   const currentProduct = allProducts.find(
     (product) => product.id === urlParam.paramId
   );
+
+  const updateCart = () => {
+    const inputTag = document.querySelector('#quantity');
+    const inputValue = inputTag.valueAsNumber;
+    setItemCount(itemCount + inputValue);
+  }
 
   return (
     <div className="product-view">
@@ -19,10 +27,10 @@ const ProductView = () => {
         ></img>
         <div className="product-view__buttons-container">
           <span className="product-view__product-name">Product name</span>
-          <label for="quantity">Quantity: </label>
+          <label htmlFor="quantity">Quantity: </label>
           <input type="number" id="quantity" name="quantity" min="1" max="100"></input>
           <div className="product-view__buttons">
-            <button>Add to cart</button>
+            <button onClick={updateCart}>Add to cart</button>
             <button>Wishlist</button>
           </div>
         </div>

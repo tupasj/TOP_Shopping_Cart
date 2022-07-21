@@ -2,12 +2,14 @@ import { HeaderButtons } from './HeaderButtons';
 import { Logo } from './Logo';
 import { Search } from './Search';
 
-const Header = () => {
+const Header = (props) => {
+    const itemCount = props.itemCount;
+
     return (
         <header>
             <Logo />
             <Search />
-            <HeaderButtons />
+            <HeaderButtons itemCount={itemCount} />
         </header>
     )
 }
