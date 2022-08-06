@@ -10,6 +10,7 @@ const Main = (props) => {
     <main>
       <CategoryFilter />
       <Routes>
+        <Route index element={<Men />} />
         <Route path="/men" element={<Men />} />
         <Route path="/women" element={<Women />} />
         <Route path="/brand-new" element={<BrandNew />} />

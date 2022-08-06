@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { useState } from "react";
 import { Header } from "./components/Header";
 import { Navigation } from "./components/Navigation";
@@ -8,11 +8,11 @@ const App = () => {
   const [itemCount, setItemCount] = useState(0);
 
   return (
-    <BrowserRouter baseName={'/TOP_Shopping_Cart'}>
+    <HashRouter baseName={'/TOP_Shopping_Cart'}>
       <Header itemCount={itemCount} />
       <Navigation />
       <Main itemCount={itemCount} setItemCount={setItemCount} />
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
