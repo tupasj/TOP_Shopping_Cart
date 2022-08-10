@@ -1,6 +1,6 @@
 import { CategoryFilter } from "./CategoryFilter";
 import { Routes, Route } from "react-router-dom";
-import { Men, Women, BrandNew, OnSale, ProductView } from "../Navigation";
+import { Men, Women, BrandNew, OnSale, ProductView } from "../Routes";
 
 const Main = (props) => {
   const setItemCount = props.setItemCount;
