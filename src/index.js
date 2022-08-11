@@ -8,7 +8,8 @@ import {
   connectAuthEmulator,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged
+  onAuthStateChanged,
+  signOut
 } from "firebase/auth";
 import { showLoginError } from "./errorMessages";
 
@@ -84,4 +85,10 @@ const monitorAuthState = async () => {
 }
 monitorAuthState();
 
-export { loginEmailPassword, createAccount };
+const logout = async () => {
+  await signOut(auth);
+  const loginModalMessage = document.querySelector('.login-modal-message');
+  loginModalMessage.textContent = 'Log in or sign up for the Lorem Ipsum Clothing store';
+}
+
+export { loginEmailPassword, createAccount, logout };

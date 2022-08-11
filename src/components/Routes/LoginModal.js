@@ -1,4 +1,4 @@
-import { loginEmailPassword, createAccount } from "../..";
+import { loginEmailPassword, createAccount, logout } from "../..";
 
 const LoginModal = () => {
   const closeLoginModal = () => {
@@ -18,8 +18,9 @@ const LoginModal = () => {
               <input type="password" id="password" name="password" placeholder="Password"></input>
             </label>
             <div className="password-message"></div>
-            <button className="login-button" onClick={loginEmailPassword}>Log in</button>
+            <button className="login-button" onClick={loginEmailPassword}>Log In</button>
             <button className="signup-button" onClick={createAccount}>Sign Up</button>
+            <button className="logout-button" onClick={logout}>Log Out</button>
         </form>
     </dialog>
   );
