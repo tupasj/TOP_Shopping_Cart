@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# debug logs
+database-debug.log
+firebase-debug.log
+ui-debug.log
