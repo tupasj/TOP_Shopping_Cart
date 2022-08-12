@@ -5,11 +5,13 @@ import { App } from "./App";
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
-  connectAuthEmulator,
+  // connectAuthEmulator,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
-  signOut
+  signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import { showLoginError } from "./errorMessages";
 
@@ -20,6 +22,7 @@ root.render(
   </React.StrictMode>
 );
 
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyA-2GRc8LpTMEoz0o3-N-0Y2wX4Ij-AasU",
   authDomain: "shopping-cart-27e1d.firebaseapp.com",
@@ -30,8 +33,10 @@ const firebaseConfig = {
   appId: "1:144721472838:web:42d587e4e6fda3cb058947",
 };
 const firebaseApp = initializeApp(firebaseConfig);
+
+// Firebase authentication
 const auth = getAuth(firebaseApp);
-connectAuthEmulator(auth, "http://localhost:9099");
+// connectAuthEmulator(auth, "http://localhost:9099");
 
 const loginEmailPassword = async () => {
   const txtEmail = document.querySelector("#email");
@@ -46,8 +51,7 @@ const loginEmailPassword = async () => {
       loginPassword
     );
     console.log(userCredentials.user);
-  }
-  catch(error) {
+  } catch (error) {
     console.log(error);
     showLoginError(error);
   }
@@ -66,29 +70,40 @@ const createAccount = async () => {
       loginPassword
     );
     console.log(userCredentials.user);
-  }
-  catch(error) {
+  } catch (error) {
     console.log(error);
     showLoginError(error);
   }
-}
+};
 
 const monitorAuthState = async () => {
-  onAuthStateChanged(auth, user => {
+  onAuthStateChanged(auth, (user) => {
     if (user) {
-      const loginModalMessage = document.querySelector('.login-modal-message');
+      const loginModalMessage = document.querySelector(".login-modal-message");
       loginModalMessage.textContent = `You are logged in as: ${user.email}`;
     } else {
       console.log(`User: 0`);
     }
-  })
-}
+  });
+};
 monitorAuthState();
 
 const logout = async () => {
   await signOut(auth);
-  const loginModalMessage = document.querySelector('.login-modal-message');
-  loginModalMessage.textContent = 'Log in or sign up for the Lorem Ipsum Clothing store';
-}
+  const loginModalMessage = document.querySelector(".login-modal-message");
+  loginModalMessage.textContent =
+    "Log in or sign up for the Lorem Ipsum Clothing store";
+};
 
-export { loginEmailPassword, createAccount, logout };
+// Firebase authentication providers
+const signInViaGoogle = async () => {
+  const googleProvider = new GoogleAuthProvider();
+  const token = await signInWithPopup(auth, googleProvider);
+  try {
+    console.log(token);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export { loginEmailPassword, createAccount, logout, signInViaGoogle };

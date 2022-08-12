@@ -1,4 +1,4 @@
-import { loginEmailPassword, createAccount, logout } from "../..";
+import { loginEmailPassword, createAccount, logout, signInViaGoogle } from "../..";
 
 const LoginModal = () => {
   const closeLoginModal = () => {
@@ -21,6 +21,7 @@ const LoginModal = () => {
             <button className="login-button" onClick={loginEmailPassword}>Log In</button>
             <button className="signup-button" onClick={createAccount}>Sign Up</button>
             <button className="logout-button" onClick={logout}>Log Out</button>
+            <button className="google-button" onClick={signInViaGoogle}>Google Sign-In</button>
         </form>
     </dialog>
   );
