@@ -1,4 +1,5 @@
 import { loginEmailPassword, createAccount, logout, signInViaGoogle } from "../..";
+import { GoogleButton } from 'react-google-button';
 
 const LoginModal = () => {
   const closeLoginModal = () => {
@@ -18,10 +19,12 @@ const LoginModal = () => {
               <input type="password" id="password" name="password" placeholder="Password"></input>
             </label>
             <div className="password-message"></div>
-            <button className="login-button" onClick={loginEmailPassword}>Log In</button>
-            <button className="signup-button" onClick={createAccount}>Sign Up</button>
-            <button className="logout-button" onClick={logout}>Log Out</button>
-            <button className="google-button" onClick={signInViaGoogle}>Google Sign-In</button>
+            <div className="button-group">
+              <button className="login-button" onClick={loginEmailPassword}>Log In</button>
+              <button className="signup-button" onClick={createAccount}>Sign Up</button>
+              <button className="logout-button" onClick={logout}>Log Out</button>
+            </div>
+            <GoogleButton className="google-button" onClick={signInViaGoogle} />
         </form>
     </dialog>
   );
