@@ -4,6 +4,8 @@ import { Header } from "./components/Header";
 import { Navigation } from "./components/Navigation";
 import { Main } from "./components/Main";
 import { LoginModal } from "./components/Routes";
+import { Cart } from "./components/Routes/Cart";
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   const [itemCount, setItemCount] = useState(0);
@@ -12,7 +14,10 @@ const App = () => {
     <HashRouter baseName='/TOP_Shopping_Cart'>
       <Header itemCount={itemCount} />
       <Navigation />
-      <Main itemCount={itemCount} setItemCount={setItemCount} />
+      <Routes>
+        <Route path="/men" element={<Main itemCount={itemCount} setItemCount={setItemCount} />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
       <LoginModal />
     </HashRouter>
   );

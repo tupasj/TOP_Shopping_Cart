@@ -17,6 +17,14 @@
   box-sizing: border-box;
 }
 
+a:link {
+  color: var(--black);
+}
+
+a:visited {
+  color: var(--black);
+}
+
 html {
   margin: 0;
 }
@@ -132,7 +140,7 @@ nav > a:hover {
 }
 
 /* Main */
-main {
+.products-view {
   display: grid;
   grid-template-columns: 1fr 5fr;
 }
@@ -159,8 +167,17 @@ main {
   grid-template-rows: repeat(3, 1fr);
 }
 
-/* Product */
+/* Orders */
+.order {
+  display: flex;
+}
 
+.order__info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Product */
 .product {
   margin: 9px 19px;
   background-color: var(--slate-light-gray);
@@ -241,6 +258,11 @@ main {
 .product-view__bullets {
   padding-left: 0;
   list-style-position: inside;
+}
+
+.product-view__buttons > button {
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 /* Login Modal */

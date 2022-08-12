@@ -7,7 +7,7 @@ const Main = (props) => {
   const itemCount = props.itemCount;
   
   return (
-    <main>
+    <main className="products-view">
       <CategoryFilter />
       <Routes>
         <Route index element={<Men />} />
