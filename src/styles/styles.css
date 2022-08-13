@@ -311,3 +311,35 @@ form > label {
 .google-button {
   margin-top: 12px;
 }
+
+/* Cart */
+.cart {
+  padding: 12px;
+}
+
+.cart__container {
+  display: grid;
+  grid-template-columns: auto 215px;
+  gap: 12px;
+}
+
+.cart__side-buttons > div {
+  background-color: var(--white);
+  border-radius: 4px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 11px 6px;
+}
+
+.orders > div {
+  background-color: var(--white);
+  border-radius: 4px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-left: 7px;
+}
+
+.order__info {
+  gap: 6px;
+  margin: 7px 11px;
+}

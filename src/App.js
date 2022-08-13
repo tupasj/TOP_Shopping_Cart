@@ -15,7 +15,7 @@ const App = () => {
       <Header itemCount={itemCount} />
       <Navigation />
       <Routes>
-        <Route path="/men" element={<Main itemCount={itemCount} setItemCount={setItemCount} />} />
+        <Route path="/*" element={<Main itemCount={itemCount} setItemCount={setItemCount} />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
       <LoginModal />
