@@ -13,6 +13,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+import { getDatabase, ref, set } from "firebase/database";
 import { showLoginError } from "./errorMessages";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -34,7 +35,7 @@ const firebaseConfig = {
 };
 const firebaseApp = initializeApp(firebaseConfig);
 
-// Firebase authentication
+// Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(firebaseApp);
 // connectAuthEmulator(auth, "http://localhost:9099");
 
@@ -45,12 +46,17 @@ const loginEmailPassword = async () => {
   const loginPassword = txtPassword.value;
 
   try {
-    const userCredentials = await signInWithEmailAndPassword(
+    await signInWithEmailAndPassword(
       auth,
       loginEmail,
       loginPassword
     );
-    console.log(userCredentials.user);
+    // const userCredentials = await signInWithEmailAndPassword(
+    //   auth,
+    //   loginEmail,
+    //   loginPassword
+    // );
+    // console.log(userCredentials.user);
   } catch (error) {
     console.log(error);
     showLoginError(error);
@@ -78,11 +84,15 @@ const createAccount = async () => {
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, (user) => {
+    const currentUser = auth.currentUser;
+
     if (user) {
       const loginModalMessage = document.querySelector(".login-modal-message");
       loginModalMessage.textContent = `You are logged in as: ${user.email}`;
+      console.log(currentUser);
     } else {
       console.log(`User: 0`);
+      console.log(currentUser);
     }
   });
 };
@@ -106,4 +116,13 @@ const signInViaGoogle = async () => {
   }
 };
 
-export { loginEmailPassword, createAccount, logout, signInViaGoogle };
+// Initialize Realtime Database and get a reference to the service
+const database = getDatabase(firebaseApp);
+
+const userWriteToDatabase = (user, obj) => {
+  const path = `users/${user}`;
+  const fullRef = ref(database, path);
+  set(fullRef, obj);
+}
+
+export { loginEmailPassword, createAccount, logout, signInViaGoogle, userWriteToDatabase, auth };

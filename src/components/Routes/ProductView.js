@@ -1,6 +1,8 @@
+import { useRef } from "react";
 import { useParams } from "react-router-dom";
 import MensClothing from "../../assets/data/MensClothing.json";
 import WomensClothing from "../../assets/data/WomensClothing.json";
+import { userWriteToDatabase, auth } from "../..";
 
 const ProductView = (props) => {
   const itemCount = props.itemCount;
@@ -10,12 +12,48 @@ const ProductView = (props) => {
   const currentProduct = allProducts.find(
     (product) => product.id === urlParam.paramId
   );
+  const quantityRef = useRef();
 
-  const updateCart = () => {
+  const incrementCartCount = () => {
     const inputTag = document.querySelector('#quantity');
     const inputValue = inputTag.valueAsNumber;
     setItemCount(itemCount + inputValue);
-  }
+  };
+
+  const addOrderToCart = () => {
+    let currentUser = auth.currentUser;
+    let obj;
+    const productQuantity = getProductQuantity();
+    const productSalePrice = currentProduct.salePrice ? currentProduct.salePrice : false;
+
+    obj = {
+      id: currentProduct.id,
+      name: currentProduct.name,
+      src: currentProduct.src,
+      alt: currentProduct.alt,
+      price: currentProduct.price,
+      salePrice: productSalePrice,
+      quantity: productQuantity
+    }
+
+    if (currentUser) {
+      // Add to cart and write to database
+      // userWriteToDatabase(currentUser, obj);
+      console.log(obj);
+    } else if (currentUser === null) {
+      // Add to cart
+      console.log(obj);
+    };
+  };
+
+  const getProductQuantity = () => {
+    return quantityRef.current.valueAsNumber;
+  };
+
+  const updateCart = () => {
+    incrementCartCount();
+    addOrderToCart();
+  };
 
   return (
     <div className="product-view">
@@ -26,9 +64,9 @@ const ProductView = (props) => {
           alt={currentProduct.alt}
         ></img>
         <div className="product-view__buttons-container">
-          <span className="product-view__product-name">Product name</span>
+          <span className="product-view__product-name">{currentProduct.name}</span>
           <label htmlFor="quantity">Quantity: </label>
-          <input type="number" id="quantity" name="quantity" min="1" max="100"></input>
+          <input ref={quantityRef} type="number" id="quantity" name="quantity" min="1" max="100"></input>
           <div className="product-view__buttons">
             <button onClick={updateCart}>Add to cart</button>
             <button>Wishlist</button>

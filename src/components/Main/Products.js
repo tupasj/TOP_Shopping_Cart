@@ -2,7 +2,6 @@ import MensClothing from "../../assets/data/MensClothing.json";
 import WomensClothing from "../../assets/data/WomensClothing.json";
 import { Rating } from "./Rating";
 import { Link, Outlet } from "react-router-dom";
-
 const Products = (props) => {
   const type = props.type;
   let filter;
@@ -28,6 +27,10 @@ const Products = (props) => {
     clothes = clothes.filter(element => element.brandNew);
   } else if (filter === "onSale") {
     clothes = clothes.filter(element => element.salePrice);
+  }
+
+  const getProductData = (clothes) => {
+    
   }
 
   let products = clothes.map((element) => {

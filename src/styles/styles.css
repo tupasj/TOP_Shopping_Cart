@@ -139,6 +139,10 @@ nav > a:hover {
   color: var(--red);
 }
 
+.nav__anchor--red:visited {
+  color: var(--red);
+}
+
 /* Main */
 .products-view {
   display: grid;
