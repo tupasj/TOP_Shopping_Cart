@@ -29,10 +29,6 @@ const Products = (props) => {
     clothes = clothes.filter(element => element.salePrice);
   }
 
-  const getProductData = (clothes) => {
-    
-  }
-
   let products = clothes.map((element) => {
     return (
       <div key={element.id} className="product">

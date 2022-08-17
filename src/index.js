@@ -84,15 +84,15 @@ const createAccount = async () => {
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, (user) => {
-    const currentUser = auth.currentUser;
+    // const currentUser = auth.currentUser;
 
     if (user) {
       const loginModalMessage = document.querySelector(".login-modal-message");
       loginModalMessage.textContent = `You are logged in as: ${user.email}`;
-      console.log(currentUser);
+      // console.log(currentUser);
     } else {
       console.log(`User: 0`);
-      console.log(currentUser);
+      // console.log(currentUser);
     }
   });
 };
@@ -108,9 +108,11 @@ const logout = async () => {
 // Firebase authentication providers
 const signInViaGoogle = async () => {
   const googleProvider = new GoogleAuthProvider();
-  const token = await signInWithPopup(auth, googleProvider);
+  // const token = await signInWithPopup(auth, googleProvider);
+  await signInWithPopup(auth, googleProvider);
   try {
-    console.log(token);
+    console.log('Google sign-in success');
+    // console.log(token);
   } catch (error) {
     console.log(error);
   }
@@ -119,10 +121,10 @@ const signInViaGoogle = async () => {
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(firebaseApp);
 
-const userWriteToDatabase = (user, obj) => {
-  const path = `users/${user}`;
+const userWriteOrder = (user, orderID, order) => {
+  const path = `users/${user}/orders/${orderID}`;
   const fullRef = ref(database, path);
-  set(fullRef, obj);
+  set(fullRef, order);
 }
 
-export { loginEmailPassword, createAccount, logout, signInViaGoogle, userWriteToDatabase, auth };
+export { loginEmailPassword, createAccount, logout, signInViaGoogle, userWriteOrder, auth };

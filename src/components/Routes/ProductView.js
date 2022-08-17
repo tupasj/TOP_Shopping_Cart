@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useParams } from "react-router-dom";
 import MensClothing from "../../assets/data/MensClothing.json";
 import WomensClothing from "../../assets/data/WomensClothing.json";
-import { userWriteToDatabase, auth } from "../..";
+import { userWriteOrder, auth } from "../..";
 
 const ProductView = (props) => {
   const itemCount = props.itemCount;
@@ -21,13 +21,13 @@ const ProductView = (props) => {
   };
 
   const addOrderToCart = () => {
-    let currentUser = auth.currentUser;
-    let obj;
+    let currentUser = auth.currentUser.uid;
+    console.log(currentUser);
+    let order;
     const productQuantity = getProductQuantity();
     const productSalePrice = currentProduct.salePrice ? currentProduct.salePrice : false;
 
-    obj = {
-      id: currentProduct.id,
+    order = {
       name: currentProduct.name,
       src: currentProduct.src,
       alt: currentProduct.alt,
@@ -38,11 +38,11 @@ const ProductView = (props) => {
 
     if (currentUser) {
       // Add to cart and write to database
-      // userWriteToDatabase(currentUser, obj);
-      console.log(obj);
+      userWriteOrder(currentUser, currentProduct.id, order);
+      console.log(order);
     } else if (currentUser === null) {
       // Add to cart
-      console.log(obj);
+      console.log(order);
     };
   };
 
