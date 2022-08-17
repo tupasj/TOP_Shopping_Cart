@@ -2,12 +2,14 @@ import { CartOrders } from "./CartOrders";
 import { CartTotal } from "./CartTotal";
 import { CartRecommended } from "./CartRecommended";
 
-const Cart = () => {
+const Cart = (props) => {
+  const anonOrders = props.anonOrders;
+
   return (
     <main className="cart">
       <div className="cart__title">Your Cart</div>
       <div className="cart__container">
-        <CartOrders />
+        <CartOrders anonOrders={anonOrders} />
         <div className="cart__side-buttons">
           <CartTotal />
           <CartRecommended />

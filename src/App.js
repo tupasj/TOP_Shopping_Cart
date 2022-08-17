@@ -9,14 +9,19 @@ import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   const [itemCount, setItemCount] = useState(0);
+  const [anonOrders, setAnonOrders] = useState([]);
+
+  const addAnonOrder = (newOrder) => {
+    setAnonOrders([...anonOrders, newOrder]);
+  };
 
   return (
     <HashRouter baseName='/TOP_Shopping_Cart'>
       <Header itemCount={itemCount} />
       <Navigation />
       <Routes>
-        <Route path="/*" element={<Main itemCount={itemCount} setItemCount={setItemCount} />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/*" element={<Main itemCount={itemCount} setItemCount={setItemCount} addAnonOrder={addAnonOrder} />} />
+        <Route path="/cart" element={<Cart anonOrders={anonOrders} />} />
       </Routes>
       <LoginModal />
     </HashRouter>

@@ -5,6 +5,7 @@ import { Men, Women, BrandNew, OnSale, ProductView } from "../Routes";
 const Main = (props) => {
   const setItemCount = props.setItemCount;
   const itemCount = props.itemCount;
+  const addAnonOrder = props.addAnonOrder;
   
   return (
     <main className="products-view">
@@ -15,7 +16,7 @@ const Main = (props) => {
         <Route path="/women" element={<Women />} />
         <Route path="/brand-new" element={<BrandNew />} />
         <Route path="/on-sale" element={<OnSale />} />
-        <Route path="/product-view/:paramId" element={<ProductView itemCount={itemCount} setItemCount={setItemCount} />} />
+        <Route path="/product-view/:paramId" element={<ProductView itemCount={itemCount} setItemCount={setItemCount} addAnonOrder={addAnonOrder} />} />
       </Routes>
     </main>
   );

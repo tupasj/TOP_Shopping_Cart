@@ -7,6 +7,7 @@ import { userWriteOrder, auth } from "../..";
 const ProductView = (props) => {
   const itemCount = props.itemCount;
   const setItemCount = props.setItemCount;
+  const addAnonOrder = props.addAnonOrder;
   const urlParam = useParams();
   const allProducts = MensClothing.Set1.concat(WomensClothing.Set1);
   const currentProduct = allProducts.find(
@@ -21,8 +22,7 @@ const ProductView = (props) => {
   };
 
   const addOrderToCart = () => {
-    let currentUser = auth.currentUser.uid;
-    console.log(currentUser);
+    let currentUser = auth.currentUser;
     let order;
     const productQuantity = getProductQuantity();
     const productSalePrice = currentProduct.salePrice ? currentProduct.salePrice : false;
@@ -37,11 +37,11 @@ const ProductView = (props) => {
     }
 
     if (currentUser) {
-      // Add to cart and write to database
+      currentUser = auth.currentUser.uid;
       userWriteOrder(currentUser, currentProduct.id, order);
       console.log(order);
     } else if (currentUser === null) {
-      // Add to cart
+      addAnonOrder(order);
       console.log(order);
     };
   };

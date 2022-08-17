@@ -171,16 +171,6 @@ nav > a:hover {
   grid-template-rows: repeat(3, 1fr);
 }
 
-/* Orders */
-.order {
-  display: flex;
-}
-
-.order__info {
-  display: flex;
-  flex-direction: column;
-}
-
 /* Product */
 .product {
   margin: 9px 19px;
@@ -335,15 +325,38 @@ form > label {
   padding: 11px 6px;
 }
 
-.orders > div {
-  background-color: var(--white);
-  border-radius: 4px;
-  margin-top: 4px;
-  margin-bottom: 4px;
+/* Orders */
+.order {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 9px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding-top: 21px;
+  padding-bottom: 21px;
   padding-left: 7px;
+  background-color: var(--white);
+}
+
+.order__info {
+  display: flex;
+  flex-direction: column;
 }
 
 .order__info {
   gap: 6px;
   margin: 7px 11px;
+}
+
+.order__img {
+  height: 300px;
+  width: 275px;
+}
+
+.order__price--line-through {
+  margin-left: 4px;
+  text-decoration: line-through;
+  font-size: 0.7rem;
+  opacity: 0.5;
 }
