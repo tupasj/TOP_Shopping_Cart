@@ -28,6 +28,7 @@ const ProductView = (props) => {
     const productSalePrice = currentProduct.salePrice ? currentProduct.salePrice : false;
 
     order = {
+      id: currentProduct.id,
       name: currentProduct.name,
       src: currentProduct.src,
       alt: currentProduct.alt,
@@ -39,10 +40,8 @@ const ProductView = (props) => {
     if (currentUser) {
       currentUser = auth.currentUser.uid;
       userWriteOrder(currentUser, currentProduct.id, order);
-      console.log(order);
     } else if (currentUser === null) {
       addAnonOrder(order);
-      console.log(order);
     };
   };
 

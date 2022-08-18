@@ -1,13 +1,16 @@
 import { auth } from "../..";
+import { CartRemoveOrderBtn } from "./CartRemoveOrderBtn";
 
 const CartOrders = (props) => {
+  const itemCount = props.itemCount;
+  const setItemCount = props.setItemCount;
   const anonOrders = props.anonOrders;
+  const removeOrderByID = props.removeOrderByID;
   const currentUser = auth.currentUser;
 
   const displayOrders = () => {
     let orders;
     if (currentUser) {
-  
     } else if (currentUser === null) {
       orders = anonOrders.map((order) => {
         return (
@@ -36,14 +39,20 @@ const CartOrders = (props) => {
                 max="100"
                 defaultValue={order.quantity}
               ></input>
-              <button className="order__remove-order">Remove from cart</button>
+              <CartRemoveOrderBtn
+                id={order.id}
+                itemCount={itemCount}
+                setItemCount={setItemCount}
+                removeOrderByID={removeOrderByID}
+                inputDefaultVal={order.quantity}
+              />
             </div>
           </div>
         );
       });
-    };
+    }
     return orders;
-  }
+  };
 
   const orders = displayOrders();
   return <div className="orders">{orders}</div>;

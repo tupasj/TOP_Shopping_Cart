@@ -15,13 +15,17 @@ const App = () => {
     setAnonOrders([...anonOrders, newOrder]);
   };
 
+  const removeOrderByID = (id) => {
+    setAnonOrders(anonOrders.filter(order => order.id !== id));
+  };
+
   return (
     <HashRouter baseName='/TOP_Shopping_Cart'>
       <Header itemCount={itemCount} />
       <Navigation />
       <Routes>
         <Route path="/*" element={<Main itemCount={itemCount} setItemCount={setItemCount} addAnonOrder={addAnonOrder} />} />
-        <Route path="/cart" element={<Cart anonOrders={anonOrders} />} />
+        <Route path="/cart" element={<Cart itemCount={itemCount} setItemCount={setItemCount} anonOrders={anonOrders} removeOrderByID={removeOrderByID} />} />
       </Routes>
       <LoginModal />
     </HashRouter>

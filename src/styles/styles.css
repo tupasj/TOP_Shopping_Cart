@@ -311,9 +311,13 @@ form > label {
   padding: 12px;
 }
 
+.cart__title {
+  font-weight: bold;
+}
+
 .cart__container {
   display: grid;
-  grid-template-columns: auto 215px;
+  grid-template-columns: auto 255px;
   gap: 12px;
 }
 
@@ -323,6 +327,27 @@ form > label {
   margin-top: 4px;
   margin-bottom: 4px;
   padding: 11px 6px;
+  text-align: center;
+}
+
+.cart__total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart__recommended-items-title {
+  margin-bottom: 18px;
+}
+
+.cart__recommended-item {
+  margin-bottom: 15px;
+}
+
+.cart__recommended-item > img {
+  width: 215px;
+  height: 275px;
+  cursor: pointer;
 }
 
 /* Orders */

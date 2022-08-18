@@ -1,11 +1,26 @@
+import MensClothing from "../../assets/data/MensClothing.json";
+import WomensClothing from "../../assets/data/WomensClothing.json";
+
 const CartRecommended = () => {
     return (
         <div className="cart__recommended-items">
-            <div className="cart_recommended-items__title">Similar to your cart items</div>
-            <div className="cart__recommended-item">Item 1</div>
-            <div className="cart__recommended-item">Item 2</div>
-            <div className="cart__recommended-item">Item 3</div>
-            <div className="cart__recommended-item">Item 4</div>
+            <div className="cart__recommended-items-title">Similar to your cart items</div>
+            <div className="cart__recommended-item"> 
+                <img src={MensClothing.Set1[0].src} alt={MensClothing.Set1[0].alt}></img>
+                <div>{MensClothing.Set1[0].name}</div>
+            </div>
+            <div className="cart__recommended-item">
+                <img src={MensClothing.Set1[5].src} alt={MensClothing.Set1[5].alt}></img>
+                <div>{MensClothing.Set1[5].name}</div>
+            </div>
+            <div className="cart__recommended-item">
+                <img src={WomensClothing.Set1[0].src} alt={WomensClothing.Set1[0].alt}></img>
+                <div>{WomensClothing.Set1[0].name}</div>
+            </div>
+            <div className="cart__recommended-item">   
+                <img src={WomensClothing.Set1[5].src} alt={WomensClothing.Set1[5].alt}></img>
+                <div>{WomensClothing.Set1[5].name}</div>
+            </div>
         </div>
     )
 }
