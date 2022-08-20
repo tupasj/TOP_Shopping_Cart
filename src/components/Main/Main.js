@@ -6,15 +6,14 @@ const Main = (props) => {
   const setItemCount = props.setItemCount;
   const itemCount = props.itemCount;
   const anonOrders = props.anonOrders;
-  const setAnonOrders = props.setAnonOrders;
   const addAnonOrder = props.addAnonOrder;
 
   return (
     <main className="products-view">
       <CategoryFilter />
       <Routes>
-        <Route index element={<Men anonOrders={anonOrders} setAnonOrders={setAnonOrders} />} />
-        <Route path="/men" element={<Men anonOrders={anonOrders} setAnonOrders={setAnonOrders} />} />
+        <Route index element={<Men />} />
+        <Route path="/men" element={<Men />} />
         <Route path="/women" element={<Women />} />
         <Route path="/brand-new" element={<BrandNew />} />
         <Route path="/on-sale" element={<OnSale />} />
