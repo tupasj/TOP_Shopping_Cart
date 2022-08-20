@@ -10,7 +10,7 @@ const Navigation = () => {
             <Link className="nav__anchor--red" to="/on-sale">On Sale</Link>
             <Outlet />
         </nav>
-    )
-}
+    );
+};
 
 export { Navigation };

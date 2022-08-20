@@ -5,7 +5,6 @@ import { App } from "./App";
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
-  // connectAuthEmulator,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -37,7 +36,6 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(firebaseApp);
-// connectAuthEmulator(auth, "http://localhost:9099");
 
 const loginEmailPassword = async () => {
   const txtEmail = document.querySelector("#email");
@@ -51,12 +49,6 @@ const loginEmailPassword = async () => {
       loginEmail,
       loginPassword
     );
-    // const userCredentials = await signInWithEmailAndPassword(
-    //   auth,
-    //   loginEmail,
-    //   loginPassword
-    // );
-    // console.log(userCredentials.user);
   } catch (error) {
     console.log(error);
     showLoginError(error);
@@ -84,35 +76,32 @@ const createAccount = async () => {
 
 const monitorAuthState = async () => {
   onAuthStateChanged(auth, (user) => {
-    // const currentUser = auth.currentUser;
-
     if (user) {
       const loginModalMessage = document.querySelector(".login-modal-message");
       loginModalMessage.textContent = `You are logged in as: ${user.email}`;
-      // console.log(currentUser);
     } else {
       console.log(`User: 0`);
-      // console.log(currentUser);
     }
   });
 };
-monitorAuthState();
 
 const logout = async () => {
   await signOut(auth);
-  const loginModalMessage = document.querySelector(".login-modal-message");
-  loginModalMessage.textContent =
-    "Log in or sign up for the Lorem Ipsum Clothing store";
+  try {
+    const loginModalMessage = document.querySelector(".login-modal-message");
+    loginModalMessage.textContent =
+      "Log in or sign up for the Lorem Ipsum Clothing store";
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // Firebase authentication providers
 const signInViaGoogle = async () => {
   const googleProvider = new GoogleAuthProvider();
-  // const token = await signInWithPopup(auth, googleProvider);
   await signInWithPopup(auth, googleProvider);
   try {
     console.log('Google sign-in success');
-    // console.log(token);
   } catch (error) {
     console.log(error);
   }
@@ -121,10 +110,21 @@ const signInViaGoogle = async () => {
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(firebaseApp);
 
-const userWriteOrder = (user, orderID, order) => {
-  const path = `users/${user}/orders/${orderID}`;
-  const fullRef = ref(database, path);
-  set(fullRef, order);
-}
+const userWriteOrder = (user, orderArray) => {
+  let formattedName = removeSpaces(user.displayName);
+  const namePath = `users/${formattedName}/userID`;
+  const nameFullRef = ref(database, namePath);
+  set(nameFullRef, user.uid);
+  const orderPath = `users/${formattedName}/orders`;
+  const orderFullRef = ref(database, orderPath);
+  set(orderFullRef, orderArray);
+};
 
-export { loginEmailPassword, createAccount, logout, signInViaGoogle, userWriteOrder, auth };
+// Util
+const removeSpaces = (str) => {
+  return str = str.replace(/\s/g, '');
+};
+
+monitorAuthState();
+
+export { loginEmailPassword, createAccount, logout, signInViaGoogle, userWriteOrder, auth, database, removeSpaces };

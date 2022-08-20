@@ -22,7 +22,7 @@ const CartRecommended = () => {
                 <div>{WomensClothing.Set1[5].name}</div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export { CartRecommended };

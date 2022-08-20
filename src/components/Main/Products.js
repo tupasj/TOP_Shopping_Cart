@@ -1,13 +1,15 @@
+import { Link, Outlet } from "react-router-dom";
 import MensClothing from "../../assets/data/MensClothing.json";
 import WomensClothing from "../../assets/data/WomensClothing.json";
 import { Rating } from "./Rating";
-import { Link, Outlet } from "react-router-dom";
+
 const Products = (props) => {
   const type = props.type;
+
   let filter;
   if (type !== "men" && type !== "women") {
     filter = type;
-  }
+  };
 
   const getProductType = (type) => {
     let clothes;
@@ -24,12 +26,13 @@ const Products = (props) => {
   let clothes = getProductType(type);
 
   if (filter === "brandNew") {
-    clothes = clothes.filter(element => element.brandNew);
+    clothes = clothes.filter((element) => element.brandNew);
   } else if (filter === "onSale") {
-    clothes = clothes.filter(element => element.salePrice);
-  }
+    clothes = clothes.filter((element) => element.salePrice);
+  };
 
-  let products = clothes.map((element) => {
+  let products;
+  products = clothes.map((element) => {
     return (
       <div key={element.id} className="product">
         <img
@@ -42,13 +45,21 @@ const Products = (props) => {
           <Rating rating={element.rating} />
         </div>
         <div className="product__price">
-          {element.salePrice ?
-          <>${element.salePrice}<span className="product__price--line-through">${element.price}</span></>
-          :
-          <span>${element.price}</span>}
+          {element.salePrice ? (
+            <>
+              ${element.salePrice}
+              <span className="product__price--line-through">
+                ${element.price}
+              </span>
+            </>
+          ) : (
+            <span>${element.price}</span>
+          )}
         </div>
         <div className="product__buttons">
-          <button><Link to={`/product-view/${element.id}`}>View</Link></button>
+          <button>
+            <Link to={`/product-view/${element.id}`}>View</Link>
+          </button>
           <button>Add to wishlist</button>
           <Outlet />
         </div>

@@ -5,7 +5,7 @@ const LoginModal = () => {
   const closeLoginModal = () => {
     const loginModal = document.querySelector('.login-modal');
     loginModal.close();
-  }
+  };
 
   return (
     <dialog className="login-modal">

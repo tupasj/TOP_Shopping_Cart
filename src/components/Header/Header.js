@@ -11,7 +11,7 @@ const Header = (props) => {
             <Search />
             <HeaderButtons itemCount={itemCount} />
         </header>
-    )
-}
+    );
+};
 
 export { Header };

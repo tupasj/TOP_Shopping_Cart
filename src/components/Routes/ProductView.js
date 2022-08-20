@@ -1,12 +1,13 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import MensClothing from "../../assets/data/MensClothing.json";
 import WomensClothing from "../../assets/data/WomensClothing.json";
-import { userWriteOrder, auth } from "../..";
+import { auth, userWriteOrder } from "../..";
 
 const ProductView = (props) => {
   const itemCount = props.itemCount;
   const setItemCount = props.setItemCount;
+  const anonOrders = props.anonOrders;
   const addAnonOrder = props.addAnonOrder;
   const urlParam = useParams();
   const allProducts = MensClothing.Set1.concat(WomensClothing.Set1);
@@ -21,13 +22,10 @@ const ProductView = (props) => {
     setItemCount(itemCount + inputValue);
   };
 
-  const addOrderToCart = () => {
-    let currentUser = auth.currentUser;
-    let order;
+  const makeOrder = () => {
     const productQuantity = getProductQuantity();
     const productSalePrice = currentProduct.salePrice ? currentProduct.salePrice : false;
-
-    order = {
+    const order = {
       id: currentProduct.id,
       name: currentProduct.name,
       src: currentProduct.src,
@@ -35,14 +33,13 @@ const ProductView = (props) => {
       price: currentProduct.price,
       salePrice: productSalePrice,
       quantity: productQuantity
-    }
-
-    if (currentUser) {
-      currentUser = auth.currentUser.uid;
-      userWriteOrder(currentUser, currentProduct.id, order);
-    } else if (currentUser === null) {
-      addAnonOrder(order);
     };
+    return order;
+  };
+
+  const addOrderToCart = () => {
+    const order = makeOrder();
+    addAnonOrder(order);
   };
 
   const getProductQuantity = () => {
@@ -53,6 +50,12 @@ const ProductView = (props) => {
     incrementCartCount();
     addOrderToCart();
   };
+
+  useEffect(() => {
+    if (auth.currentUser) {
+      userWriteOrder(auth.currentUser, anonOrders);
+    };
+  }, [anonOrders]);
 
   return (
     <div className="product-view">

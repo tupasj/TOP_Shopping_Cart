@@ -1,4 +1,4 @@
-import { AuthErrorCodes } from "firebase/auth"
+import { AuthErrorCodes } from "firebase/auth";
 
 export const showLoginError = (error) => {
     const passWordMessage = document.querySelector('.password-message');
@@ -7,5 +7,5 @@ export const showLoginError = (error) => {
         passWordMessage.textContent = 'Wrong password. Try again.';
     } else {
         passWordMessage.textContent = `Error ${error.message}`;
-    }
-}
+    };
+};

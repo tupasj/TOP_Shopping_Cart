@@ -1,9 +1,12 @@
 import { Products } from "../Main/Products";
 
-const Men = () => {
+const Men = (props) => {
+  const anonOrders = props.anonOrders;
+  const setAnonOrders = props.setAnonOrders;
+
   return (
     <>
-      <Products type="men" />
+      <Products type="men" anonOrders={anonOrders} setAnonOrders={setAnonOrders} />
     </>
   );
 };

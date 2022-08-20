@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const HeaderButtons = (props) => {
   const itemCount = props.itemCount;
+
   const openLoginModal = () => {
     const loginModal = document.querySelector(".login-modal");
     loginModal.showModal();
