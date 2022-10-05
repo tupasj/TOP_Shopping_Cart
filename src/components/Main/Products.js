@@ -9,7 +9,7 @@ const Products = (props) => {
   let filter;
   if (type !== "men" && type !== "women") {
     filter = type;
-  };
+  }
 
   const getProductType = (type) => {
     let clothes;
@@ -29,17 +29,19 @@ const Products = (props) => {
     clothes = clothes.filter((element) => element.brandNew);
   } else if (filter === "onSale") {
     clothes = clothes.filter((element) => element.salePrice);
-  };
+  }
 
   let products;
   products = clothes.map((element) => {
     return (
       <div key={element.id} className="product">
-        <img
-          className="product__image"
-          src={element.src}
-          alt={element.alt}
-        ></img>
+        <Link to={`/product-view/${element.id}`}>
+          <img
+            className="product__image"
+            src={element.src}
+            alt={element.alt}
+          ></img>
+        </Link>
         <div className="product__name">{element.name}</div>
         <div className="product__rating">
           <Rating rating={element.rating} />
@@ -60,7 +62,6 @@ const Products = (props) => {
           <button>
             <Link to={`/product-view/${element.id}`}>View</Link>
           </button>
-          <button>Add to wishlist</button>
           <Outlet />
         </div>
       </div>

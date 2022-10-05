@@ -67,11 +67,12 @@ const ProductView = (props) => {
         ></img>
         <div className="product-view__buttons-container">
           <span className="product-view__product-name">{currentProduct.name}</span>
-          <label htmlFor="quantity">Quantity: </label>
-          <input ref={quantityRef} type="number" id="quantity" name="quantity" min="1" max="100"></input>
+          <div className="product-view__quantity-input-container">
+            <label htmlFor="quantity">Quantity: </label>
+            <input ref={quantityRef} type="number" id="quantity" name="quantity" min="1" max="100"></input>
+          </div>
           <div className="product-view__buttons">
             <button onClick={updateCart}>Add to cart</button>
-            <button>Wishlist</button>
           </div>
         </div>
       </div>
