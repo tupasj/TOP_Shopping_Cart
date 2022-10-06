@@ -27,6 +27,7 @@ const CartOrders = (props) => {
           </span>
           <label htmlFor="order__quantity">Quantity: </label>
           <input
+            className="input__quantity"
             type="number"
             id="order__quantity"
             name="order__quantity"

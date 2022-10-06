@@ -1,74 +1,56 @@
-import { Link, Outlet } from "react-router-dom";
-import MensClothing from "../../assets/data/MensClothing.json";
-import WomensClothing from "../../assets/data/WomensClothing.json";
+import { Link } from "react-router-dom";
 import { Rating } from "./Rating";
+import { AddToCartButton } from "../UI/AddToCartButton";
+import ClothesAPI from "../../api/ClothesAPI";
 
 const Products = (props) => {
   const type = props.type;
+  const filteredProducts = ClothesAPI.getFilteredProducts(type);
+  const addAnonOrder = props.addAnonOrder;
+  const itemCount = props.itemCount;
+  const setItemCount = props.setItemCount;
 
-  let filter;
-  if (type !== "men" && type !== "women") {
-    filter = type;
-  }
-
-  const getProductType = (type) => {
-    let clothes;
-    if (type === "men") {
-      clothes = MensClothing.Set1;
-    } else if (type === "women") {
-      clothes = WomensClothing.Set1;
-    } else {
-      clothes = MensClothing.Set1.concat(WomensClothing.Set1);
-    }
-    return clothes;
-  };
-
-  let clothes = getProductType(type);
-
-  if (filter === "brandNew") {
-    clothes = clothes.filter((element) => element.brandNew);
-  } else if (filter === "onSale") {
-    clothes = clothes.filter((element) => element.salePrice);
-  }
-
-  let products;
-  products = clothes.map((element) => {
-    return (
-      <div key={element.id} className="product">
-        <Link to={`/product-view/${element.id}`}>
-          <img
-            className="product__image"
-            src={element.src}
-            alt={element.alt}
-          ></img>
-        </Link>
-        <div className="product__name">{element.name}</div>
-        <div className="product__rating">
-          <Rating rating={element.rating} />
-        </div>
-        <div className="product__price">
-          {element.salePrice ? (
-            <>
-              ${element.salePrice}
-              <span className="product__price--line-through">
-                ${element.price}
-              </span>
-            </>
-          ) : (
-            <span>${element.price}</span>
-          )}
-        </div>
-        <div className="product__buttons">
-          <button>
-            <Link to={`/product-view/${element.id}`}>View</Link>
-          </button>
-          <Outlet />
-        </div>
-      </div>
-    );
-  });
-
-  return <div className="products">{products}</div>;
+  return (
+    <div className="products">
+      {filteredProducts.map((product) => {
+        return (
+          <div key={product.id} className="product">
+            <Link to={`/product-view/${product.id}`}>
+              <img
+                className="product__image"
+                src={product.src}
+                alt={product.alt}
+              ></img>
+            </Link>
+            <div className="product__name">{product.name}</div>
+            <div className="product__rating">
+              <Rating rating={product.rating} />
+            </div>
+            <div className="product__price">
+              {product.salePrice ? (
+                <>
+                  ${product.salePrice}
+                  <span className="product__price--line-through">
+                    ${product.price}
+                  </span>
+                </>
+              ) : (
+                <span>${product.price}</span>
+              )}
+            </div>
+            <div className="product__buttons">
+              <AddToCartButton
+                productID={product.id}
+                itemCount={itemCount}
+                setItemCount={setItemCount}
+                addAnonOrder={addAnonOrder}
+              />
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export { Products };

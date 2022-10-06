@@ -1,6 +1,7 @@
 import { CategoryFilter } from "./CategoryFilter";
 import { Routes, Route } from "react-router-dom";
-import { Men, Women, BrandNew, OnSale, ProductView } from "../Routes";
+import { Products } from "./Products";
+import { ProductView } from "../Routes";
 
 const Main = (props) => {
   const setItemCount = props.setItemCount;
@@ -12,11 +13,11 @@ const Main = (props) => {
     <main className="products-view">
       <CategoryFilter />
       <Routes>
-        <Route index element={<Men />} />
-        <Route path="/men" element={<Men />} />
-        <Route path="/women" element={<Women />} />
-        <Route path="/brand-new" element={<BrandNew />} />
-        <Route path="/on-sale" element={<OnSale />} />
+        <Route index element={<Products type="men" itemCount={itemCount} setItemCount={setItemCount} addAnonOrder={addAnonOrder} />} />
+        <Route path="/men" element={<Products type="men" itemCount={itemCount} setItemCount={setItemCount} addAnonOrder={addAnonOrder} />} />
+        <Route path="/women" element={<Products type="women" itemCount={itemCount} setItemCount={setItemCount} addAnonOrder={addAnonOrder} />} />
+        <Route path="/brand-new" element={<Products type="brandNew" itemCount={itemCount} setItemCount={setItemCount} addAnonOrder={addAnonOrder} />} />
+        <Route path="/on-sale" element={<Products type="onSale" itemCount={itemCount} setItemCount={setItemCount} addAnonOrder={addAnonOrder} />} />
         <Route
           path="/product-view/:paramId"
           element={

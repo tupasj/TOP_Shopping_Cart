@@ -4,7 +4,7 @@ import { auth, database, userWriteOrder, removeSpaces } from ".";
 import { Header } from "./components/Header";
 import { Navigation } from "./components/Navigation";
 import { Main } from "./components/Main";
-import { LoginModal } from "./components/Routes";
+import { LoginModal } from "./components/UI";
 import { Cart } from "./components/Routes/Cart";
 import { ref, get } from "firebase/database";
 
@@ -59,6 +59,11 @@ const App = () => {
     // console.log('anonOrders update:');
     // console.log(anonOrders);
   }, [anonOrders]);
+
+  useEffect(() => {
+    console.log('item count has updated to: ');
+    console.log(itemCount);
+  }, [itemCount]);
 
   return (
     <HashRouter baseName="/TOP_Shopping_Cart">

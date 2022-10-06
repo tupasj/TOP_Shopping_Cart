@@ -1,55 +1,17 @@
 import { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
-import MensClothing from "../../assets/data/MensClothing.json";
-import WomensClothing from "../../assets/data/WomensClothing.json";
 import { auth, userWriteOrder } from "../..";
+import { AddToCartButton } from "../UI/AddToCartButton";
+import ClothesAPI from "../../api/ClothesAPI";
 
 const ProductView = (props) => {
-  const itemCount = props.itemCount;
-  const setItemCount = props.setItemCount;
+  const quantityRef = useRef();
+  const urlParam = useParams();
+  const currentProduct = ClothesAPI.getCurrentProduct(urlParam);
   const anonOrders = props.anonOrders;
   const addAnonOrder = props.addAnonOrder;
-  const urlParam = useParams();
-  const allProducts = MensClothing.Set1.concat(WomensClothing.Set1);
-  const currentProduct = allProducts.find(
-    (product) => product.id === urlParam.paramId
-  );
-  const quantityRef = useRef();
-
-  const incrementCartCount = () => {
-    const inputTag = document.querySelector('#quantity');
-    const inputValue = inputTag.valueAsNumber;
-    setItemCount(itemCount + inputValue);
-  };
-
-  const makeOrder = () => {
-    const productQuantity = getProductQuantity();
-    const productSalePrice = currentProduct.salePrice ? currentProduct.salePrice : false;
-    const order = {
-      id: currentProduct.id,
-      name: currentProduct.name,
-      src: currentProduct.src,
-      alt: currentProduct.alt,
-      price: currentProduct.price,
-      salePrice: productSalePrice,
-      quantity: productQuantity
-    };
-    return order;
-  };
-
-  const addOrderToCart = () => {
-    const order = makeOrder();
-    addAnonOrder(order);
-  };
-
-  const getProductQuantity = () => {
-    return quantityRef.current.valueAsNumber;
-  };
-
-  const updateCart = () => {
-    incrementCartCount();
-    addOrderToCart();
-  };
+  const itemCount = props.itemCount;
+  const setItemCount = props.setItemCount;
 
   useEffect(() => {
     if (auth.currentUser) {
@@ -69,10 +31,10 @@ const ProductView = (props) => {
           <span className="product-view__product-name">{currentProduct.name}</span>
           <div className="product-view__quantity-input-container">
             <label htmlFor="quantity">Quantity: </label>
-            <input ref={quantityRef} type="number" id="quantity" name="quantity" min="1" max="100"></input>
+            <input className="input__quantity" ref={quantityRef} type="number" id="quantity" name="quantity" min="1" max="100"></input>
           </div>
           <div className="product-view__buttons">
-            <button onClick={updateCart}>Add to cart</button>
+            <AddToCartButton ref={quantityRef} addAnonOrder={addAnonOrder} itemCount={itemCount} setItemCount={setItemCount} />
           </div>
         </div>
       </div>
