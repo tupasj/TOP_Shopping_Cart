@@ -2,15 +2,13 @@ import { Link } from "react-router-dom";
 import { Rating } from "./Rating";
 import { AddToCartButton } from "../UI/AddToCartButton";
 import ClothesAPI from "../../api/ClothesAPI";
+import { useContext } from "react";
+import { UsesCartButtonContext } from "../../context/UsesCartButtonContext";
 
 const Products = (props) => {
+  const {itemCount, setItemCount, orders, setOrders, addOrder} = useContext(UsesCartButtonContext);
   const type = props.type;
   const filteredProducts = ClothesAPI.getFilteredProducts(type);
-  const orders = props.orders;
-  const setOrders = props.setOrders;
-  const addOrder = props.addOrder;
-  const itemCount = props.itemCount;
-  const setItemCount = props.setItemCount;
 
   return (
     <div className="products">

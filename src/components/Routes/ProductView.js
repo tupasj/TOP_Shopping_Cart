@@ -3,16 +3,14 @@ import { useParams } from "react-router-dom";
 import { auth, userWriteOrder } from "../..";
 import { AddToCartButton } from "../UI/AddToCartButton";
 import ClothesAPI from "../../api/ClothesAPI";
+import { useContext } from "react";
+import { UsesCartButtonContext } from "../../context/UsesCartButtonContext";
 
-const ProductView = (props) => {
+const ProductView = () => {
   const quantityRef = useRef();
   const urlParam = useParams();
+  const {itemCount, setItemCount, orders, setOrders, addOrder} = useContext(UsesCartButtonContext);
   const currentProduct = ClothesAPI.getCurrentProduct(urlParam);
-  const orders = props.orders;
-  const setOrders = props.setOrders;
-  const addOrder = props.addOrder;
-  const itemCount = props.itemCount;
-  const setItemCount = props.setItemCount;
 
   useEffect(() => {
     if (auth.currentUser) {

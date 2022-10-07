@@ -2,10 +2,11 @@ import { CategoryFilter } from "./CategoryFilter";
 import { Routes, Route } from "react-router-dom";
 import { Products } from "./Products";
 import { ProductView } from "../Routes";
+import { UsesCartButtonContext } from "../../context/UsesCartButtonContext";
 
 const Main = (props) => {
-  const setItemCount = props.setItemCount;
   const itemCount = props.itemCount;
+  const setItemCount = props.setItemCount;
   const orders = props.orders;
   const setOrders = props.setOrders;
   const addOrder = props.addOrder;
@@ -13,25 +14,16 @@ const Main = (props) => {
   return (
     <main className="products-view">
       <CategoryFilter />
-      <Routes>
-        <Route index element={<Products type="men" itemCount={itemCount} setItemCount={setItemCount} orders={orders} setOrders={setOrders} addOrder={addOrder} />} />
-        <Route path="/men" element={<Products type="men" itemCount={itemCount} setItemCount={setItemCount} orders={orders} setOrders={setOrders} addOrder={addOrder} />} />
-        <Route path="/women" element={<Products type="women" itemCount={itemCount} setItemCount={setItemCount} orders={orders} setOrders={setOrders} addOrder={addOrder} />} />
-        <Route path="/brand-new" element={<Products type="brandNew" itemCount={itemCount} setItemCount={setItemCount} orders={orders} setOrders={setOrders} addOrder={addOrder} />} />
-        <Route path="/on-sale" element={<Products type="onSale" itemCount={itemCount} setItemCount={setItemCount} orders={orders} setOrders={setOrders} addOrder={addOrder} />} />
-        <Route
-          path="/product-view/:paramId"
-          element={
-            <ProductView
-              itemCount={itemCount}
-              setItemCount={setItemCount}
-              orders={orders}
-              setOrders={setOrders}
-              addOrder={addOrder}
-            />
-          }
-        />
-      </Routes>
+      <UsesCartButtonContext.Provider value={{itemCount, setItemCount, orders, setOrders, addOrder}}>
+        <Routes>
+          <Route index element={<Products type="men" />} />
+          <Route path="/men" element={<Products type="men" />} />
+          <Route path="/women" element={<Products type="women" />} />
+          <Route path="/brand-new" element={<Products type="brandNew" />} />
+          <Route path="/on-sale" element={<Products type="onSale" />} />
+          <Route path="/product-view/:paramId" element={<ProductView />} />
+        </Routes>
+      </UsesCartButtonContext.Provider>
     </main>
   );
 };
