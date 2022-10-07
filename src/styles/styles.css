@@ -374,8 +374,14 @@ nav > a:hover {
 
 .cart__total {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 12px;
+}
+
+.cart__subtotal__value {
+  margin-top: 2px;
 }
 
 .cart__recommended-items-title {

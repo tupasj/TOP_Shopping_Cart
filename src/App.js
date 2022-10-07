@@ -60,12 +60,12 @@ const App = () => {
     // console.log(orders);
   }, [orders]);
 
-  useEffect(() => {
-    console.log('item count has updated to: ');
-    console.log(itemCount);
-    console.log('orders array state has updated to: ');
-    console.log(orders);
-  }, [itemCount, orders]);
+  // useEffect(() => {
+  //   console.log('item count has updated to: ');
+  //   console.log(itemCount);
+  //   console.log('orders array state has updated to: ');
+  //   console.log(orders);
+  // }, [itemCount, orders]);
 
   return (
     <HashRouter baseName="/TOP_Shopping_Cart">

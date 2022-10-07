@@ -1,7 +1,30 @@
+import { useEffect } from "react";
 import { CartRemoveOrderBtn } from "./CartRemoveOrderBtn";
 
 const CartOrders = (props) => {
   const orders = props.orders;
+  const setSubtotal = props.setSubtotal;
+
+  useEffect(() => {
+    const calculateSubtotal = () => {
+      let accumulatorValue = 0;
+      for (let i = 0; i < orders.length; i++) {
+        const hasSalePrice = orders[i].salePrice ? true : false;
+        let productPrice;
+        if (hasSalePrice) {
+          productPrice = orders[i].salePrice;
+        } else {
+          productPrice = orders[i].price;
+        }
+        const productQuantity = orders[i].quantity;
+        const orderCost = productPrice * productQuantity;
+        accumulatorValue += orderCost;
+      }
+      setSubtotal(accumulatorValue);
+    };
+    calculateSubtotal();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [orders]);
 
   return (
     <div className="orders">
