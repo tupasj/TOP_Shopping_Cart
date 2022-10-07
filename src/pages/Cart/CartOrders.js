@@ -1,10 +1,7 @@
 import { CartRemoveOrderBtn } from "./CartRemoveOrderBtn";
 
 const CartOrders = (props) => {
-  const itemCount = props.itemCount;
-  const setItemCount = props.setItemCount;
   const orders = props.orders;
-  const removeOrderByID = props.removeOrderByID;
 
   return (
     <div className="orders">
@@ -38,9 +35,6 @@ const CartOrders = (props) => {
               ></input>
               <CartRemoveOrderBtn
                 id={order.id}
-                itemCount={itemCount}
-                setItemCount={setItemCount}
-                removeOrderByID={removeOrderByID}
                 inputDefaultVal={order.quantity}
               />
             </div>

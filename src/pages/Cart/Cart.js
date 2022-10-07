@@ -1,25 +1,21 @@
 import { CartOrders } from "./CartOrders";
 import { CartTotal } from "./CartTotal";
 import { CartRecommended } from "./CartRecommended";
+import { UsesRemoveOrderButtonContext } from "../../context/UsesRemoveOrderButtonContext";
 
 const Cart = (props) => {
   const itemCount = props.itemCount;
   const setItemCount = props.setItemCount;
   const orders = props.orders;
-  const setOrders = props.setOrders;
   const removeOrderByID = props.removeOrderByID;
 
   return (
     <main className="cart">
       <div className="cart__title">Your Cart</div>
       <div className="cart__container">
-        <CartOrders
-          itemCount={itemCount}
-          setItemCount={setItemCount}
-          orders={orders}
-          setOrders={setOrders}
-          removeOrderByID={removeOrderByID}
-        />
+        <UsesRemoveOrderButtonContext.Provider value={{ itemCount, setItemCount, removeOrderByID }}>
+          <CartOrders orders={orders} />
+        </UsesRemoveOrderButtonContext.Provider>
         <div className="cart__side-buttons">
           <CartTotal />
           <CartRecommended />
