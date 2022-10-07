@@ -9,6 +9,7 @@ const ProductView = (props) => {
   const urlParam = useParams();
   const currentProduct = ClothesAPI.getCurrentProduct(urlParam);
   const orders = props.orders;
+  const setOrders = props.setOrders;
   const addOrder = props.addOrder;
   const itemCount = props.itemCount;
   const setItemCount = props.setItemCount;
@@ -34,7 +35,7 @@ const ProductView = (props) => {
             <input className="input__quantity" ref={quantityRef} type="number" id="quantity" name="quantity" min="1" max="100"></input>
           </div>
           <div className="product-view__buttons">
-            <AddToCartButton ref={quantityRef} orders={orders} addOrder={addOrder} itemCount={itemCount} setItemCount={setItemCount} />
+            <AddToCartButton ref={quantityRef} orders={orders} setOrders={setOrders} addOrder={addOrder} itemCount={itemCount} setItemCount={setItemCount} />
           </div>
         </div>
       </div>

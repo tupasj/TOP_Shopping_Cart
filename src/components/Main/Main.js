@@ -26,6 +26,7 @@ const Main = (props) => {
               itemCount={itemCount}
               setItemCount={setItemCount}
               orders={orders}
+              setOrders={setOrders}
               addOrder={addOrder}
             />
           }

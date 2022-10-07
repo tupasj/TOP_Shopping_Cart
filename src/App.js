@@ -5,7 +5,7 @@ import { Header } from "./components/Header";
 import { Navigation } from "./components/Navigation";
 import { Main } from "./components/Main";
 import { LoginModal } from "./components/UI";
-import { Cart } from "./components/Routes/Cart";
+import { Cart } from "./pages/Cart/Cart";
 import { ref, get } from "firebase/database";
 
 const App = () => {

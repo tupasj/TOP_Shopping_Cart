@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { useParams } from "react-router-dom";
 import ClothesAPI from "../../api/ClothesAPI";
-import { checkDuplicateOrders } from "../../utils/cartUtils";
+import { checkDuplicateOrders, updateOrderElementQuantity , updateOrderElementQuantityById } from "../../utils/cartUtils";
 
 const AddToCartButton = forwardRef(function (props, ref) {
   const productID = props.productID;
@@ -12,51 +12,29 @@ const AddToCartButton = forwardRef(function (props, ref) {
   const setItemCount = props.setItemCount;
   const urlParam = useParams();
 
-  const updateOrderElementQuantityById = (elementID) => {
-    const mutatedOrders = [...orders];
-    const matchedOrder = mutatedOrders.find((order) => order.id === elementID);
-    const matchedOrderIndex = mutatedOrders.indexOf(matchedOrder);
-    const updatedQuantity = (matchedOrder.quantity += 1);
-    const updatedOrder = {...matchedOrder, quantity: updatedQuantity};
-    mutatedOrders[matchedOrderIndex] = updatedOrder;
-    setOrders([...mutatedOrders]);
-  };
-
-  const updateOrderElementQuantity = (product, amount) => {
-    const mutatedOrders = [...orders];
-    const matchedOrder = mutatedOrders.find((order) => order.id === product.id);
-    const matchedOrderIndex = mutatedOrders.indexOf(matchedOrder);
-    const updatedQuantity = (matchedOrder.quantity += amount);
-    const updatedOrder = {...matchedOrder, quantity: updatedQuantity};
-    mutatedOrders[matchedOrderIndex] = updatedOrder;
-    try {
-      setOrders([...mutatedOrders]);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const updateCart = () => {
-    if (productID) { // If have to get current product by productID (add to cart button is located out of ProductView component)
+    if (productID) { // This button is located out of ProductView component (check by getting current product by productID)
+      // Make order by id
       const currentProduct = ClothesAPI.getCurrentProductById(productID);
       const order = ClothesAPI.makeOrder(currentProduct, 1);
       const isDuplicateOrder = checkDuplicateOrders(orders, currentProduct.id);
+      // Handle duplicate orders by id
       if (isDuplicateOrder) {
-        console.log('if block');
-        updateOrderElementQuantityById(productID);
+        updateOrderElementQuantityById(productID, orders, setOrders);
         setItemCount(itemCount + 1);
       } else {
         addOrder(order);
         setItemCount(itemCount + 1);
       }
-    } else if (ref.current.valueAsNumber >= 1) {
+    } else if (ref.current.valueAsNumber >= 1) { // Button is located in ProductView component (check by getting input element value ref)
+      // Make order
       const productQuantity = ref.current.valueAsNumber;
       const currentProduct = ClothesAPI.getCurrentProduct(urlParam);
       const order = ClothesAPI.makeOrder(currentProduct, productQuantity);
+      // Handle duplicate orders
       const isDuplicateOrder = checkDuplicateOrders(orders, currentProduct.id);
       if (isDuplicateOrder) {
-        console.log('else if');
-        updateOrderElementQuantity(currentProduct, productQuantity);
+        updateOrderElementQuantity(currentProduct, productQuantity, orders, setOrders);
         setItemCount(itemCount + productQuantity);
       } else {
         addOrder(order);
