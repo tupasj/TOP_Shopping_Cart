@@ -6,7 +6,9 @@ import ClothesAPI from "../../api/ClothesAPI";
 const Products = (props) => {
   const type = props.type;
   const filteredProducts = ClothesAPI.getFilteredProducts(type);
-  const addAnonOrder = props.addAnonOrder;
+  const orders = props.orders;
+  const setOrders = props.setOrders;
+  const addOrder = props.addOrder;
   const itemCount = props.itemCount;
   const setItemCount = props.setItemCount;
 
@@ -43,7 +45,9 @@ const Products = (props) => {
                 productID={product.id}
                 itemCount={itemCount}
                 setItemCount={setItemCount}
-                addAnonOrder={addAnonOrder}
+                orders={orders}
+                setOrders={setOrders}
+                addOrder={addOrder}
               />
             </div>
           </div>

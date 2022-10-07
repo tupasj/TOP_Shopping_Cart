@@ -5,8 +5,8 @@ import { CartRecommended } from "./CartRecommended";
 const Cart = (props) => {
   const itemCount = props.itemCount;
   const setItemCount = props.setItemCount;
-  const anonOrders = props.anonOrders;
-  const setAnonOrders = props.setAnonOrders;
+  const orders = props.orders;
+  const setOrders = props.setOrders;
   const removeOrderByID = props.removeOrderByID;
 
   return (
@@ -16,8 +16,8 @@ const Cart = (props) => {
         <CartOrders
           itemCount={itemCount}
           setItemCount={setItemCount}
-          anonOrders={anonOrders}
-          setAnonOrders={setAnonOrders}
+          orders={orders}
+          setOrders={setOrders}
           removeOrderByID={removeOrderByID}
         />
         <div className="cart__side-buttons">

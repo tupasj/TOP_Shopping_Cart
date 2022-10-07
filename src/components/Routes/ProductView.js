@@ -8,16 +8,16 @@ const ProductView = (props) => {
   const quantityRef = useRef();
   const urlParam = useParams();
   const currentProduct = ClothesAPI.getCurrentProduct(urlParam);
-  const anonOrders = props.anonOrders;
-  const addAnonOrder = props.addAnonOrder;
+  const orders = props.orders;
+  const addOrder = props.addOrder;
   const itemCount = props.itemCount;
   const setItemCount = props.setItemCount;
 
   useEffect(() => {
     if (auth.currentUser) {
-      userWriteOrder(auth.currentUser, anonOrders);
+      userWriteOrder(auth.currentUser, orders);
     };
-  }, [anonOrders]);
+  }, [orders]);
 
   return (
     <div className="product-view">
@@ -34,7 +34,7 @@ const ProductView = (props) => {
             <input className="input__quantity" ref={quantityRef} type="number" id="quantity" name="quantity" min="1" max="100"></input>
           </div>
           <div className="product-view__buttons">
-            <AddToCartButton ref={quantityRef} addAnonOrder={addAnonOrder} itemCount={itemCount} setItemCount={setItemCount} />
+            <AddToCartButton ref={quantityRef} orders={orders} addOrder={addOrder} itemCount={itemCount} setItemCount={setItemCount} />
           </div>
         </div>
       </div>

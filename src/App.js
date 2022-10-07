@@ -10,14 +10,14 @@ import { ref, get } from "firebase/database";
 
 const App = () => {
   const [itemCount, setItemCount] = useState(0);
-  const [anonOrders, setAnonOrders] = useState([]);
+  const [orders, setOrders] = useState([]);
 
-  const addAnonOrder = (newOrder) => {
-    setAnonOrders([...anonOrders, newOrder]);
+  const addOrder = (newOrder) => {
+    setOrders([...orders, newOrder]);
   };
 
   const removeOrderByID = (id) => {
-    setAnonOrders(anonOrders.filter((order) => order.id !== id));
+    setOrders(orders.filter((order) => order.id !== id));
   };
 
   useEffect(() => {
@@ -51,19 +51,21 @@ const App = () => {
   useEffect(() => {
     if (auth.currentUser) {
       try {
-        userWriteOrder(auth.currentUser, anonOrders);
+        userWriteOrder(auth.currentUser, orders);
       } catch (error) {
         console.log(error);
       };
     };
-    // console.log('anonOrders update:');
-    // console.log(anonOrders);
-  }, [anonOrders]);
+    // console.log('orders update:');
+    // console.log(orders);
+  }, [orders]);
 
   useEffect(() => {
     console.log('item count has updated to: ');
     console.log(itemCount);
-  }, [itemCount]);
+    console.log('orders array state has updated to: ');
+    console.log(orders);
+  }, [itemCount, orders]);
 
   return (
     <HashRouter baseName="/TOP_Shopping_Cart">
@@ -76,9 +78,9 @@ const App = () => {
             <Main
               itemCount={itemCount}
               setItemCount={setItemCount}
-              anonOrders={anonOrders}
-              setAnonOrders={setAnonOrders}
-              addAnonOrder={addAnonOrder}
+              orders={orders}
+              setOrders={setOrders}
+              addOrder={addOrder}
             />
           }
         />
@@ -88,8 +90,8 @@ const App = () => {
             <Cart
               itemCount={itemCount}
               setItemCount={setItemCount}
-              anonOrders={anonOrders}
-              setAnonOrders={setAnonOrders}
+              orders={orders}
+              setOrders={setOrders}
               removeOrderByID={removeOrderByID}
             />
           }
