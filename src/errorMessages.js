@@ -6,6 +6,6 @@ export const showLoginError = (error) => {
     if (error.code === AuthErrorCodes.INVALID_PASSWORD) {
         passWordMessage.textContent = 'Wrong password. Try again.';
     } else {
-        passWordMessage.textContent = `Error ${error.message}`;
+        passWordMessage.textContent = `(Error) ${error.message}`;
     };
 };

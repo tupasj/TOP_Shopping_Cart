@@ -1,10 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useContext } from "react";
+import { UsesCartButtonContext } from "../../context/UsesCartButtonContext";
 import { useParams } from "react-router-dom";
-import { auth, userWriteOrder } from "../..";
+import { auth } from "../../FirebaseServices/firebaseAuth";
+import { userWriteOrder } from "../../FirebaseServices/firebaseDatabase";
 import { AddToCartButton } from "../UI/AddToCartButton";
 import ClothesAPI from "../../api/ClothesAPI";
-import { useContext } from "react";
-import { UsesCartButtonContext } from "../../context/UsesCartButtonContext";
 
 const ProductView = () => {
   const quantityRef = useRef();

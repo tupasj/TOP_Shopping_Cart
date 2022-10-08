@@ -1,9 +1,11 @@
-import { loginEmailPassword, createAccount, logout, signInViaGoogle } from "../..";
+import { loginEmailPassword, createAccount, logout, signInViaGoogle } from "../../FirebaseServices/firebaseAuth";
 import { GoogleButton } from 'react-google-button';
 
 const LoginModal = () => {
   const closeLoginModal = () => {
     const loginModal = document.querySelector('.login-modal');
+    const passwordMessage = document.querySelector('.password-message');
+    passwordMessage.textContent = '';
     loginModal.close();
   };
 

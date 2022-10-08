@@ -1,13 +1,17 @@
 import { useEffect, useState, useReducer } from "react";
 import { ordersReducer } from "./reducers/ordersReducer";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { auth, database, userWriteOrder, removeSpaces } from ".";
+// Firebase
+import { ref, get } from "firebase/database";
+import { auth } from "./FirebaseServices/firebaseAuth";
+import { database, userWriteOrder } from "./FirebaseServices/firebaseDatabase";
+import { removeSpaces } from "./utils/stringUtils";
+// 
 import { Header } from "./components/Header";
 import { Navigation } from "./components/Navigation";
 import { Main } from "./components/Main";
 import { LoginModal } from "./components/UI";
 import { Cart } from "./pages/Cart/Cart";
-import { ref, get } from "firebase/database";
 
 const App = () => {
   const [itemCount, setItemCount] = useState(0);
