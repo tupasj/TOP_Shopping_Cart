@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { UsesRemoveOrderButtonContext } from "../../context/UsesRemoveOrderButtonContext";
 
 const CartRemoveOrderBtn = (props) => {
-  const { itemCount, setItemCount, removeOrderByID } = useContext(UsesRemoveOrderButtonContext)
+  const { itemCount, setItemCount, removeOrder } = useContext(UsesRemoveOrderButtonContext)
   const id = props.id;
   const inputDefaultVal = props.inputDefaultVal;
 
@@ -12,7 +12,7 @@ const CartRemoveOrderBtn = (props) => {
 
   const deleteOrder = (id) => {
     decrementItemCount(inputDefaultVal);
-    removeOrderByID(id.target.id);
+    removeOrder(id.target.id);
   };
 
   return (
