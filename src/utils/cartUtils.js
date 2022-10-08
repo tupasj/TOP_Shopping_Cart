@@ -7,24 +7,24 @@ const checkDuplicateOrders = (ordersArray, currentProductID) => {
   return false;
 };
 
-const updateOrderElementQuantity = (product, amount, ordersState, setOrdersState) => {
+const updateOrderElementQuantity = (product, amount, ordersState, replaceOrdersState) => {
   const mutatedOrders = [...ordersState];
   const matchedOrder = mutatedOrders.find((order) => order.id === product.id);
   const matchedOrderIndex = mutatedOrders.indexOf(matchedOrder);
   const updatedQuantity = (matchedOrder.quantity += amount);
   const updatedOrder = {...matchedOrder, quantity: updatedQuantity};
   mutatedOrders[matchedOrderIndex] = updatedOrder;
-  setOrdersState([...mutatedOrders]);
+  replaceOrdersState([...mutatedOrders]);
 };
 
-const updateOrderElementQuantityById = (elementID, ordersState, setOrdersState) => {
+const updateOrderElementQuantityById = (elementID, ordersState, replaceOrdersState) => {
   const mutatedOrders = [...ordersState];
   const matchedOrder = mutatedOrders.find((order) => order.id === elementID);
   const matchedOrderIndex = mutatedOrders.indexOf(matchedOrder);
   const updatedQuantity = (matchedOrder.quantity += 1);
   const updatedOrder = {...matchedOrder, quantity: updatedQuantity};
   mutatedOrders[matchedOrderIndex] = updatedOrder;
-  setOrdersState([...mutatedOrders]);
+  replaceOrdersState([...mutatedOrders]);
 };
 
 

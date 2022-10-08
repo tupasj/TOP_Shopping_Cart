@@ -9,7 +9,7 @@ import { UsesCartButtonContext } from "../../context/UsesCartButtonContext";
 const ProductView = () => {
   const quantityRef = useRef();
   const urlParam = useParams();
-  const {itemCount, setItemCount, orders, setOrders, addOrder} = useContext(UsesCartButtonContext);
+  const {itemCount, setItemCount, orders, replaceOrders, addOrder} = useContext(UsesCartButtonContext);
   const currentProduct = ClothesAPI.getCurrentProduct(urlParam);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const ProductView = () => {
             <input className="input__quantity" ref={quantityRef} type="number" id="quantity" name="quantity" min="1" max="100"></input>
           </div>
           <div className="product-view__buttons">
-            <AddToCartButton ref={quantityRef} orders={orders} setOrders={setOrders} addOrder={addOrder} itemCount={itemCount} setItemCount={setItemCount} />
+            <AddToCartButton ref={quantityRef} orders={orders} replaceOrders={replaceOrders} addOrder={addOrder} itemCount={itemCount} setItemCount={setItemCount} />
           </div>
         </div>
       </div>

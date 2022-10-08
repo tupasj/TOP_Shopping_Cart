@@ -8,13 +8,13 @@ const Main = (props) => {
   const itemCount = props.itemCount;
   const setItemCount = props.setItemCount;
   const orders = props.orders;
-  const setOrders = props.setOrders;
+  const replaceOrders = props.replaceOrders;
   const addOrder = props.addOrder;
 
   return (
     <main className="products-view">
       <CategoryFilter />
-      <UsesCartButtonContext.Provider value={{itemCount, setItemCount, orders, setOrders, addOrder}}>
+      <UsesCartButtonContext.Provider value={{itemCount, setItemCount, orders, replaceOrders, addOrder}}>
         <Routes>
           <Route index element={<Products type="men" />} />
           <Route path="/men" element={<Products type="men" />} />

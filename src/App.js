@@ -27,12 +27,22 @@ const App = () => {
     });
   };
 
-  const setOrders = (orderArray) => {
+  const replaceOrders = (orderArray) => {
     dispatch({
       type: "set",
       newOrders: orderArray,
     });
   };
+
+  const modifyOrderQuantityOnChange = (e, order) => {
+    dispatch({
+      type: "change quantity",
+      payload: {
+        id: order.id,
+        quantity: e.target.valueAsNumber,
+      }
+    })
+  }
 
   useEffect(() => {
     console.log("get database data");
@@ -88,7 +98,7 @@ const App = () => {
               itemCount={itemCount}
               setItemCount={setItemCount}
               orders={orders}
-              setOrders={setOrders}
+              replaceOrders={replaceOrders}
               addOrder={addOrder}
             />
           }
@@ -100,8 +110,9 @@ const App = () => {
               itemCount={itemCount}
               setItemCount={setItemCount}
               orders={orders}
-              setOrders={setOrders}
+              replaceOrders={replaceOrders}
               removeOrder={removeOrder}
+              modifyOrderQuantityOnChange={modifyOrderQuantityOnChange}
             />
           }
         />

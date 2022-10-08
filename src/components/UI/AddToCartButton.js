@@ -6,7 +6,7 @@ import { checkDuplicateOrders, updateOrderElementQuantity , updateOrderElementQu
 const AddToCartButton = forwardRef(function (props, ref) {
   const productID = props.productID;
   const orders = props.orders;
-  const setOrders = props.setOrders;
+  const replaceOrders = props.replaceOrders;
   const addOrder = props.addOrder;
   const itemCount = props.itemCount;
   const setItemCount = props.setItemCount;
@@ -20,7 +20,7 @@ const AddToCartButton = forwardRef(function (props, ref) {
       const isDuplicateOrder = checkDuplicateOrders(orders, currentProduct.id);
       // Handle duplicate orders by id
       if (isDuplicateOrder) {
-        updateOrderElementQuantityById(productID, orders, setOrders);
+        updateOrderElementQuantityById(productID, orders, replaceOrders);
         setItemCount(itemCount + 1);
       } else {
         addOrder(order);
@@ -34,7 +34,7 @@ const AddToCartButton = forwardRef(function (props, ref) {
       // Handle duplicate orders
       const isDuplicateOrder = checkDuplicateOrders(orders, currentProduct.id);
       if (isDuplicateOrder) {
-        updateOrderElementQuantity(currentProduct, productQuantity, orders, setOrders);
+        updateOrderElementQuantity(currentProduct, productQuantity, orders, replaceOrders);
         setItemCount(itemCount + productQuantity);
       } else {
         addOrder(order);

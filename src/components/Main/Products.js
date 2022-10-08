@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { UsesCartButtonContext } from "../../context/UsesCartButtonContext";
 
 const Products = (props) => {
-  const {itemCount, setItemCount, orders, setOrders, addOrder} = useContext(UsesCartButtonContext);
+  const {itemCount, setItemCount, orders, replaceOrders, addOrder} = useContext(UsesCartButtonContext);
   const type = props.type;
   const filteredProducts = ClothesAPI.getFilteredProducts(type);
 
@@ -44,7 +44,7 @@ const Products = (props) => {
                 itemCount={itemCount}
                 setItemCount={setItemCount}
                 orders={orders}
-                setOrders={setOrders}
+                replaceOrders={replaceOrders}
                 addOrder={addOrder}
               />
             </div>
