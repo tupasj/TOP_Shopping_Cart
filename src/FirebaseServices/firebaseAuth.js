@@ -1,8 +1,7 @@
 import { firebaseApp } from "../FirebaseServices/firebaseConfig";
-import { showLoginError } from "../errorMessages";
+import { showLoginError } from "./errorMessages";
 import {
   getAuth,
-  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
@@ -12,19 +11,6 @@ import {
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(firebaseApp);
-
-// Firebase auth state observer
-const monitorAuthState = async () => {
-  onAuthStateChanged(auth, (user) => {
-    if (user) { // Retrieve user's orders when they sign in
-      const loginModalMessage = document.querySelector(".login-modal-message");
-      loginModalMessage.textContent = `You are logged in as: ${user.email}`;
-    } else { // Empty the cart when logging out
-      console.log(`User: 0`);
-    }
-  });
-};
-monitorAuthState();
 
 const loginEmailPassword = async (e) => {
   e.preventDefault();
@@ -60,7 +46,6 @@ const createAccount = async (e) => {
     showLoginError(error);
   }
 };
-
 
 const logout = async () => {
   const updateModalText = () => {

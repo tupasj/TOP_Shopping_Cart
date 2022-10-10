@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import { Products } from "./Products";
 import { ProductView } from "../Routes";
 import { UsesCartButtonContext } from "../../context/UsesCartButtonContext";
+import { useEffect } from "react";
+import { calculateItemCount } from "../../utils/cartUtils";
 
 const Main = (props) => {
   const itemCount = props.itemCount;
@@ -10,6 +12,10 @@ const Main = (props) => {
   const orders = props.orders;
   const replaceOrders = props.replaceOrders;
   const addOrder = props.addOrder;
+
+  useEffect(() => {
+    calculateItemCount(orders, setItemCount);
+  })
 
   return (
     <main className="products-view">

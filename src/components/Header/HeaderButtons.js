@@ -7,7 +7,7 @@ const HeaderButtons = (props) => {
     const loginModal = document.querySelector(".login-modal");
     loginModal.showModal();
   };
-
+  
   return (
     <div className="header-buttons">
       <i className="fa-solid fa-user modal-open" onClick={openLoginModal}></i>

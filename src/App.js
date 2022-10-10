@@ -1,12 +1,9 @@
-import { useEffect, useState, useReducer } from "react";
+import { useState, useReducer, useEffect } from "react";
 import { ordersReducer } from "./reducers/ordersReducer";
 import { HashRouter, Routes, Route } from "react-router-dom";
-// Firebase
-import { ref, get } from "firebase/database";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./FirebaseServices/firebaseAuth";
-import { database, userWriteOrder } from "./FirebaseServices/firebaseDatabase";
-import { removeSpaces } from "./utils/stringUtils";
-//
+import { readUserOrders } from "./FirebaseServices/firebaseDatabase";
 import { Header } from "./components/Header";
 import { Navigation } from "./components/Navigation";
 import { Main } from "./components/Main";
@@ -49,33 +46,19 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log("get database data");
-    const retrieveOrderData = () => {
-      const user = auth.currentUser;
-      const formattedName = removeSpaces(user.displayName);
-      const orderPath = `users/${formattedName}/orders`;
-      const orderFullRef = ref(database, orderPath);
-      get(orderFullRef)
-        .then((snapshot) => {
-          if (snapshot.exists()) {
-            console.log("snapshot: ");
-            console.log(snapshot.val());
-          } else {
-            console.log("No data available");
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-
-    if (auth.currentUser) {
-      try {
-        retrieveOrderData();
-      } catch (error) {
-        console.log(error);
-      }
+  // Firebase auth state observer
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      const userOrders = await readUserOrders();
+      console.log("userOrders: ");
+      console.log(userOrders);
+      replaceOrders(userOrders);
+      const loginModalMessage = document.querySelector(".login-modal-message");
+      loginModalMessage.textContent = `You are logged in as: ${user.email}`;
+    } else {
+      console.log(`User: 0`);
     }
+  });
   }, []);
 
   return (

@@ -27,5 +27,31 @@ const updateOrderElementQuantityById = (elementID, ordersState, replaceOrdersSta
   replaceOrdersState([...mutatedOrders]);
 };
 
+const calculateSubtotal = (ordersState, setSubtotalState) => {
+  let accumulatorValue = 0;
+  for (let i = 0; i < ordersState.length; i++) {
+    const hasSalePrice = ordersState[i].salePrice ? true : false;
+    let productPrice;
+    if (hasSalePrice) {
+      productPrice = ordersState[i].salePrice;
+    } else {
+      productPrice = ordersState[i].price;
+    }
+    const productQuantity = ordersState[i].quantity;
+    const orderCost = productPrice * productQuantity;
+    accumulatorValue += orderCost;
+  }
+  setSubtotalState(accumulatorValue);
+};
 
-export { checkDuplicateOrders, updateOrderElementQuantity, updateOrderElementQuantityById};
+const calculateItemCount = (ordersState, setItemCountState) => {
+  const quantityArray = ordersState.map((order) => order.quantity);
+  const initialValue = 0;
+  const quantitySum = quantityArray.reduce(
+    (previousValue, currentValue) => previousValue + currentValue,
+    initialValue
+  );
+  setItemCountState(quantitySum);
+};
+
+export { checkDuplicateOrders, updateOrderElementQuantity, updateOrderElementQuantityById, calculateSubtotal, calculateItemCount };
