@@ -6,7 +6,7 @@ import { ref, get } from "firebase/database";
 import { auth } from "./FirebaseServices/firebaseAuth";
 import { database, userWriteOrder } from "./FirebaseServices/firebaseDatabase";
 import { removeSpaces } from "./utils/stringUtils";
-// 
+//
 import { Header } from "./components/Header";
 import { Navigation } from "./components/Navigation";
 import { Main } from "./components/Main";
@@ -44,9 +44,9 @@ const App = () => {
       payload: {
         id: order.id,
         quantity: e.target.valueAsNumber,
-      }
-    })
-  }
+      },
+    });
+  };
 
   useEffect(() => {
     console.log("get database data");
@@ -77,18 +77,6 @@ const App = () => {
       }
     }
   }, []);
-
-  useEffect(() => {
-    if (auth.currentUser) {
-      try {
-        userWriteOrder(auth.currentUser, orders);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    // console.log('orders update:');
-    // console.log(orders);
-  }, [orders]);
 
   return (
     <HashRouter baseName="/TOP_Shopping_Cart">
@@ -121,7 +109,7 @@ const App = () => {
           }
         />
       </Routes>
-      <LoginModal />
+      <LoginModal replaceOrders={replaceOrders} setItemCount={setItemCount} />
     </HashRouter>
   );
 };

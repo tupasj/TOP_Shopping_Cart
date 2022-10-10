@@ -2,9 +2,9 @@ import { firebaseApp } from "../FirebaseServices/firebaseConfig";
 import { showLoginError } from "../errorMessages";
 import {
   getAuth,
+  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
@@ -12,6 +12,19 @@ import {
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(firebaseApp);
+
+// Firebase auth state observer
+const monitorAuthState = async () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) { // Retrieve user's orders when they sign in
+      const loginModalMessage = document.querySelector(".login-modal-message");
+      loginModalMessage.textContent = `You are logged in as: ${user.email}`;
+    } else { // Empty the cart when logging out
+      console.log(`User: 0`);
+    }
+  });
+};
+monitorAuthState();
 
 const loginEmailPassword = async (e) => {
   e.preventDefault();
@@ -48,26 +61,20 @@ const createAccount = async (e) => {
   }
 };
 
-const monitorAuthState = async () => {
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const loginModalMessage = document.querySelector(".login-modal-message");
-      loginModalMessage.textContent = `You are logged in as: ${user.email}`;
-    } else {
-      console.log(`User: 0`);
-    }
-  });
-};
 
 const logout = async () => {
-  await signOut(auth);
-  try {
-    const loginModalMessage = document.querySelector(".login-modal-message");
-    loginModalMessage.textContent =
-      "Log in or sign up for the Lorem Ipsum Clothing store";
-  } catch (error) {
-    console.log(error);
+  const updateModalText = () => {
+    try {
+      const loginModalMessage = document.querySelector(".login-modal-message");
+      loginModalMessage.textContent =
+        "Log in or sign up for the Lorem Ipsum Clothing store";
+    } catch (error) {
+      console.log(error);
+    }
   }
+  
+  await signOut(auth);
+  updateModalText();
 };
 
 // Firebase authentication providers
@@ -81,13 +88,10 @@ const signInViaGoogle = async () => {
   }
 };
 
-monitorAuthState();
-
 export {
   auth,
   loginEmailPassword,
   createAccount,
-  monitorAuthState,
   logout,
   signInViaGoogle,
 };

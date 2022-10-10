@@ -1,12 +1,24 @@
-import { loginEmailPassword, createAccount, logout, signInViaGoogle } from "../../FirebaseServices/firebaseAuth";
+import { auth, loginEmailPassword, createAccount, logout, signInViaGoogle } from "../../FirebaseServices/firebaseAuth";
 import { GoogleButton } from 'react-google-button';
 
-const LoginModal = () => {
+const LoginModal = (props) => {
+  const replaceOrders = props.replaceOrders;
+  const setItemCount = props.setItemCount;
+  
   const closeLoginModal = () => {
     const loginModal = document.querySelector('.login-modal');
     const passwordMessage = document.querySelector('.password-message');
     passwordMessage.textContent = '';
     loginModal.close();
+  };
+
+  const handleLogOut = () => {
+    const loggedIn = auth.currentUser ? true : false;
+    if (loggedIn) {
+      logout();
+      replaceOrders([]);
+      setItemCount(0);
+    };
   };
 
   return (
@@ -24,7 +36,7 @@ const LoginModal = () => {
             <div className="button-group">
               <button className="login-button" onClick={loginEmailPassword}>Log In</button>
               <button className="signup-button" onClick={createAccount}>Sign Up</button>
-              <button className="logout-button" onClick={logout}>Log Out</button>
+              <button className="logout-button" onClick={handleLogOut}>Log Out</button>
             </div>
             <GoogleButton className="google-button" onClick={signInViaGoogle} />
         </form>

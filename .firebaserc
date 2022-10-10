@@ -1,7 +1,8 @@
 {
   "projects": {
     "default": "shopping-cart-27e1d",
-    "Shopping Cart": "shopping-cart-27e1d"
+    "Shopping Cart": "shopping-cart-27e1d",
+    "Fake Store": "shopping-cart-27e1d"
   },
   "targets": {},
   "etags": {}
