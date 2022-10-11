@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CartOrders } from "./CartOrders";
 import { CartTotal } from "./CartTotal";
 import { CartRecommended } from "./CartRecommended";
@@ -14,6 +14,12 @@ const Cart = (props) => {
 
   const [subtotal, setSubtotal] = useState("0.00");
 
+  useEffect(() => {
+    if (!orders[0]) {
+      setSubtotal("0");
+    }
+  }, [orders])
+
   return (
     <main className="cart">
       <div className="cart__title">Your Cart</div>
@@ -21,14 +27,18 @@ const Cart = (props) => {
         <UsesRemoveOrderButtonContext.Provider
           value={{ itemCount, setItemCount, removeOrder }}
         >
-          <CartOrders
-            setItemCount={setItemCount}
-            orders={orders}
-            replaceOrders={replaceOrders}
-            subtotal={subtotal}
-            setSubtotal={setSubtotal}
-            modifyOrderQuantityOnChange={modifyOrderQuantityOnChange}
-          />
+          {orders[0] ? (
+            <CartOrders
+              setItemCount={setItemCount}
+              orders={orders}
+              replaceOrders={replaceOrders}
+              subtotal={subtotal}
+              setSubtotal={setSubtotal}
+              modifyOrderQuantityOnChange={modifyOrderQuantityOnChange}
+            />
+          ) : (
+            <div>Your cart is empty.</div>
+          )}
         </UsesRemoveOrderButtonContext.Provider>
         <div className="cart__side-buttons">
           <CartTotal subtotal={subtotal} />

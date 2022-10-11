@@ -7,13 +7,15 @@ import { removeSpaces } from "../utils/stringUtils";
 const database = getDatabase(firebaseApp);
 
 const userWriteOrder = (user, orderArray) => {
-  let formattedName = removeSpaces(user.displayName);
-  const namePath = `users/${formattedName}/userID`;
-  const nameFullRef = ref(database, namePath);
-  set(nameFullRef, user.uid);
-  const orderPath = `users/${formattedName}/orders`;
-  const orderFullRef = ref(database, orderPath);
-  set(orderFullRef, orderArray);
+  if (auth.currentUser) {
+    let formattedName = removeSpaces(user.displayName);
+    const namePath = `users/${formattedName}/userID`;
+    const nameFullRef = ref(database, namePath);
+    set(nameFullRef, user.uid);
+    const orderPath = `users/${formattedName}/orders`;
+    const orderFullRef = ref(database, orderPath);
+    set(orderFullRef, orderArray);
+  }
 };
 
 const readUserOrders = async () => {
@@ -29,6 +31,7 @@ const readUserOrders = async () => {
       return userOrders;
     } else {
       console.log("No data available");
+      return false;
     }
   } catch (error) {
     console.log(error);

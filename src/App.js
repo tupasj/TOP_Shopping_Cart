@@ -49,12 +49,15 @@ const App = () => {
   // Firebase auth state observer
   onAuthStateChanged(auth, async (user) => {
     if (user) {
+      const loginModalMessage = document.querySelector(".login-modal-message");
+      loginModalMessage.textContent = `You are logged in as: ${user.email}`;
       const userOrders = await readUserOrders();
+      if (!userOrders) {
+        return;
+      }
       console.log("userOrders: ");
       console.log(userOrders);
       replaceOrders(userOrders);
-      const loginModalMessage = document.querySelector(".login-modal-message");
-      loginModalMessage.textContent = `You are logged in as: ${user.email}`;
     } else {
       console.log(`User: 0`);
     }

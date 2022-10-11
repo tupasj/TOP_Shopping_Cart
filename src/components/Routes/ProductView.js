@@ -1,8 +1,6 @@
-import { useEffect, useRef, useContext } from "react";
+import { useRef, useContext } from "react";
 import { UsesCartButtonContext } from "../../context/UsesCartButtonContext";
 import { useParams } from "react-router-dom";
-import { auth } from "../../FirebaseServices/firebaseAuth";
-import { userWriteOrder } from "../../FirebaseServices/firebaseDatabase";
 import { AddToCartButton } from "../UI/AddToCartButton";
 import ClothesAPI from "../../api/ClothesAPI";
 
@@ -11,12 +9,6 @@ const ProductView = () => {
   const urlParam = useParams();
   const {itemCount, setItemCount, orders, replaceOrders, addOrder} = useContext(UsesCartButtonContext);
   const currentProduct = ClothesAPI.getCurrentProduct(urlParam);
-
-  useEffect(() => {
-    if (auth.currentUser) {
-      userWriteOrder(auth.currentUser, orders);
-    };
-  }, [orders]);
 
   return (
     <div className="product-view">
