@@ -9,10 +9,13 @@ import { Navigation } from "./components/Navigation";
 import { Main } from "./components/Main";
 import { LoginModal } from "./components/UI";
 import { Cart } from "./pages/Cart/Cart";
+import { ProductFilterContext } from "./context/ProductFilterContext";
 
 const App = () => {
   const [itemCount, setItemCount] = useState(0);
+  const [filter, setFilter] = useState({});
   const [orders, dispatch] = useReducer(ordersReducer, []);
+  const [type, setType] = useState('all');
 
   const addOrder = (order) => {
     dispatch({
@@ -46,41 +49,48 @@ const App = () => {
   };
 
   useEffect(() => {
-  // Firebase auth state observer
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      const loginModalMessage = document.querySelector(".login-modal-message");
-      loginModalMessage.textContent = `You are logged in as: ${user.email}`;
-      const userOrders = await readUserOrders();
-      if (!userOrders) {
-        return;
+    // Firebase auth state observer
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const loginModalMessage = document.querySelector(
+          ".login-modal-message"
+        );
+        loginModalMessage.textContent = `You are logged in as: ${user.email}`;
+        const userOrders = await readUserOrders();
+        if (!userOrders) {
+          return;
+        }
+        console.log("userOrders: ");
+        console.log(userOrders);
+        replaceOrders(userOrders);
+      } else {
+        console.log(`User: 0`);
       }
-      console.log("userOrders: ");
-      console.log(userOrders);
-      replaceOrders(userOrders);
-    } else {
-      console.log(`User: 0`);
-    }
-  });
+    });
   }, []);
 
   return (
     <HashRouter baseName="/TOP_Shopping_Cart">
-      <Header itemCount={itemCount} />
-      <Navigation />
+      <ProductFilterContext.Provider value={{setFilter}}>
+        <Header itemCount={itemCount} setType={setType} />
+      </ProductFilterContext.Provider>
+      <Navigation setType={setType} />
       <Routes>
-        <Route
-          path="/*"
-          element={
-            <Main
-              itemCount={itemCount}
-              setItemCount={setItemCount}
-              orders={orders}
-              replaceOrders={replaceOrders}
-              addOrder={addOrder}
-            />
-          }
-        />
+          <Route
+            path="/*"
+            element={
+              <Main
+                itemCount={itemCount}
+                setItemCount={setItemCount}
+                orders={orders}
+                replaceOrders={replaceOrders}
+                addOrder={addOrder}
+                filter={filter}
+                setFilter={setFilter}
+                type={type}
+              />
+            }
+          />
         <Route
           path="/cart"
           element={

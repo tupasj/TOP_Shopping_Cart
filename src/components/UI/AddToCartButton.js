@@ -2,18 +2,16 @@ import { forwardRef } from "react";
 import { useParams } from "react-router-dom";
 import ClothesAPI from "../../api/ClothesAPI";
 import { checkDuplicateOrders, updateOrderElementQuantity , updateOrderElementQuantityById } from "../../utils/cartUtils";
+import { useContext } from "react";
+import { UsesCartButtonContext } from "../../context/UsesCartButtonContext";
 
 const AddToCartButton = forwardRef(function (props, ref) {
+  const {itemCount, setItemCount, orders, replaceOrders, addOrder} = useContext(UsesCartButtonContext);
   const productID = props.productID;
-  const orders = props.orders;
-  const replaceOrders = props.replaceOrders;
-  const addOrder = props.addOrder;
-  const itemCount = props.itemCount;
-  const setItemCount = props.setItemCount;
   const urlParam = useParams();
 
   const updateCart = () => {
-    if (productID) { // This button is located out of ProductView component (check by getting current product by productID)
+    if (productID) { // If the button is located out of ProductView component (check by getting current product by productID)
       // Make order by id
       const currentProduct = ClothesAPI.getCurrentProductById(productID);
       const order = ClothesAPI.makeOrder(currentProduct, 1);
@@ -26,7 +24,7 @@ const AddToCartButton = forwardRef(function (props, ref) {
         addOrder(order);
         setItemCount(itemCount + 1);
       }
-    } else if (ref.current.valueAsNumber >= 1) { // Button is located in ProductView component (check by getting input element value ref)
+    } else if (ref.current.valueAsNumber >= 1) { // If the button is located in ProductView component (check by getting input element value ref)
       // Make order
       const productQuantity = ref.current.valueAsNumber;
       const currentProduct = ClothesAPI.getCurrentProduct(urlParam);

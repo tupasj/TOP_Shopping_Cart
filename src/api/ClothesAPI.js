@@ -35,40 +35,30 @@ const makeOrder = (currentProduct, productQuantity) => {
   return order;
 };
 
-const getFilteredProducts = (type) => {
-  let filter;
-  if (type !== "men" && type !== "women") {
-    filter = type;
+const getProductsByType = (type) => {
+  const allClothes = MensClothing.Set1.concat(WomensClothing.Set1);
+
+  switch (type) {
+    case "all":
+      return allClothes;
+    case "men":
+      return MensClothing.Set1;
+    case "women":
+      return WomensClothing.Set1;
+    case "brandNew":
+      return allClothes.filter((element) => element.brandNew);
+    case "onSale":
+      return allClothes.filter((element) => element.salePrice);
+    default:
+      console.log("Could not get products by type");
   }
-
-  const getProductType = (type) => {
-    let clothes;
-    if (type === "men") {
-      clothes = MensClothing.Set1;
-    } else if (type === "women") {
-      clothes = WomensClothing.Set1;
-    } else {
-      clothes = MensClothing.Set1.concat(WomensClothing.Set1);
-    }
-    return clothes;
-  };
-
-  let clothes = getProductType(type);
-
-  if (filter === "brandNew") {
-    clothes = clothes.filter((element) => element.brandNew);
-  } else if (filter === "onSale") {
-    clothes = clothes.filter((element) => element.salePrice);
-  }
-
-  return clothes;
 };
 
 const ClothesAPI = {
   getCurrentProduct: getCurrentProduct,
   getCurrentProductById: getCurrentProductById,
   makeOrder: makeOrder,
-  getFilteredProducts: getFilteredProducts,
+  getProductsByType: getProductsByType,
 };
 
 export default ClothesAPI;

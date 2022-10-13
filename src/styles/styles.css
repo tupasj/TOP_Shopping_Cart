@@ -166,7 +166,7 @@ header {
   display: inline-block;
   background-color: var(--slate-light-gray);
   border-radius: 7px;
-  padding-left: 7px;
+  position: relative;
 }
 
 .search-bar__input {
@@ -180,13 +180,23 @@ header {
   outline: none;
 }
 
-.search-bar > i {
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-right: 4px;
-  border-right: 2px solid rgba(0, 0, 0, 0.04);
-  border-radius: 2px;
-  cursor: pointer;
+.search-bar__submit-button {
+  padding: 0px !important;
+  padding-left: 4px !important;
+  padding-right: 4px !important;
+  margin-top: 2px;
+  border: none !important;
+  border-radius: 7px;
+  background-color: var(--slate-light-gray);
+}
+
+.search-bar__divider {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 2px;
+  height: 22px;
+  background-color: rgba(0,0,0,0.05);
 }
 
 .header-buttons {
