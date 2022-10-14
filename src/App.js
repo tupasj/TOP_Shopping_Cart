@@ -9,13 +9,12 @@ import { Navigation } from "./components/Navigation";
 import { Main } from "./components/Main";
 import { LoginModal } from "./components/UI";
 import { Cart } from "./pages/Cart/Cart";
-import { ProductFilterContext } from "./context/ProductFilterContext";
 
 const App = () => {
   const [itemCount, setItemCount] = useState(0);
-  const [filter, setFilter] = useState({});
   const [orders, dispatch] = useReducer(ordersReducer, []);
-  const [type, setType] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [type, setType] = useState('');
 
   const addOrder = (order) => {
     dispatch({
@@ -71,9 +70,7 @@ const App = () => {
 
   return (
     <HashRouter baseName="/TOP_Shopping_Cart">
-      <ProductFilterContext.Provider value={{setFilter}}>
-        <Header itemCount={itemCount} setType={setType} />
-      </ProductFilterContext.Provider>
+      <Header itemCount={itemCount} setSearchQuery={setSearchQuery} setType={setType} />
       <Navigation setType={setType} />
       <Routes>
           <Route
@@ -85,8 +82,8 @@ const App = () => {
                 orders={orders}
                 replaceOrders={replaceOrders}
                 addOrder={addOrder}
-                filter={filter}
-                setFilter={setFilter}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
                 type={type}
               />
             }

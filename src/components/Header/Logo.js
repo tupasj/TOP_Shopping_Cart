@@ -3,12 +3,8 @@ import { Link } from "react-router-dom";
 const Logo = (props) => {
   const setType = props.setType;
 
-  const handleClick = () => {
-    setType('all');
-  }
-
   return (
-    <Link to="/index" onClick={handleClick}>
+    <Link to="/all" onClick={() => setType("all")}>
       <div className="logo">
         <span className="logo__text">
           <span className="logo__text--red">L</span>orem{" "}

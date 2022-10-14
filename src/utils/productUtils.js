@@ -1,9 +1,9 @@
-const getSearchResults = (filter, productsByType) => {
+const getSearchResults = (searchValue, productsByType) => {
   const getMatchingProductNames = () => {
     const productNameMatches = [];
     for (let i = 0; i < productsByType.length; i++) {
       const currentProductName = productsByType[i].name.toLowerCase();
-      const searchQuery = filter.toLowerCase();
+      const searchQuery = searchValue.toLowerCase();
       if (currentProductName.includes(searchQuery)) {
         productNameMatches.push(currentProductName);
       }

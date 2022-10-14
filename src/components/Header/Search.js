@@ -1,9 +1,8 @@
-import { useState, useContext } from "react";
-import { ProductFilterContext } from "../../context/ProductFilterContext";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Search = () => {
-  const { setFilter } = useContext(ProductFilterContext);
+const Search = (props) => {
+  const setSearchQuery = props.setSearchQuery;
   const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
 
@@ -13,7 +12,7 @@ const Search = () => {
 
   const handleSubmit = (e) => {
     if (e.key === "Enter" || e.type !== "keydown") {
-      setFilter(searchValue);
+      setSearchQuery(searchValue);
       navigate(`/results/search_query=${searchValue}`);
     }
   };
