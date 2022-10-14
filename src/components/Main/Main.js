@@ -37,7 +37,7 @@ const Main = (props) => {
               <Route path="/brand-new" element={<ProductsBrandNew />} />
               <Route path="/on-sale" element={<ProductsOnSale />} />
               <Route path="/product-view/:paramId" element={<ProductView />} />
-              <Route path={`/results/search_query=${searchQuery}`} element={<Products type={type} /> } />
+              <Route path={`/results/search_query=${searchQuery}`} element={<Products type={type} searchQuery={searchQuery} /> } />
               <Route path="*" element={<RoutingError />} />
             </Routes>
           </ProductFilterContext.Provider>

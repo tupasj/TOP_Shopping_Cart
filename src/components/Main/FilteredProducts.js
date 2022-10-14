@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
 import ClothesAPI from "../../api/ClothesAPI";
 import { useContext } from "react";
@@ -7,41 +8,41 @@ import { Link } from "react-router-dom";
 import { Rating } from "./Rating";
 import { AddToCartButton } from "../UI/AddToCartButton";
 import { useLocation, useNavigate } from "react-router-dom";
+import { NoProductMatch } from "../Routes/NoProductMatch";
 
 const FilteredProducts = (props) => {
   const type = props.type;
   const initialProducts = ClothesAPI.getProductsByType(type);
-  const { searchQuery, setSearchQuery, filter } = useContext(ProductFilterContext);
+  const { searchQuery, setSearchQuery, filter } =
+    useContext(ProductFilterContext);
   const [filteredProducts, setFilteredProducts] = useState(initialProducts);
   const searchResults = getSearchResults(searchQuery, initialProducts);
   let location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-     // If search query is made, display search results else go to initialProducts
     if (searchQuery) {
-        const searchResults = getSearchResults(searchQuery, initialProducts);
-        setFilteredProducts(searchResults);
+      const searchResults = getSearchResults(searchQuery, initialProducts);
+      setFilteredProducts(searchResults);
     } else {
-        // setFilteredProducts(initialProducts);
-        navigate(`/${type}`);
+      navigate(`/${type}`);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
   useEffect(() => {
-    // If filter apply filter(s), else it's search results
     if (searchQuery) {
-        setFilteredProducts(searchResults);
+      setFilteredProducts(searchResults);
     } else {
-        // setFilteredProducts(initialProducts);
-        navigate(`/${type}`);
+      navigate(`/${type}`);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <div className="products">
-        {filteredProducts[0] &&
+        {filteredProducts[0] ? (
           filteredProducts.map((product) => {
             return (
               <div key={product.id} className="product">
@@ -73,7 +74,10 @@ const FilteredProducts = (props) => {
                 </div>
               </div>
             );
-          })}
+          })
+        ) : (
+          <NoProductMatch searchQuery={searchQuery} />
+        )}
       </div>
     </>
   );

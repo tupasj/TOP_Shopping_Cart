@@ -12,8 +12,12 @@ const Search = (props) => {
 
   const handleSubmit = (e) => {
     if (e.key === "Enter" || e.type !== "keydown") {
-      setSearchQuery(searchValue);
-      navigate(`/results/search_query=${searchValue}`);
+      if ((searchValue !== '') && (typeof(searchValue) !== "number")) {
+        setSearchQuery(searchValue);
+        navigate(`/results/search_query=${searchValue}`);
+      } else {
+        navigate('no-product-match');
+      }
     }
   };
 
