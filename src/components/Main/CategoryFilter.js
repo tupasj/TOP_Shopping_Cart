@@ -1,4 +1,28 @@
-const CategoryFilter = () => {
+import { useEffect } from "react";
+
+const CategoryFilter = (props) => {
+  const filter = props.filter;
+  const setFilter = props.setFilter;
+
+  const handleInput = (e) => {
+    const clickedFilter = e.target.value;
+    // console.log('clickedFilter', clickedFilter);
+    const checked = e.target.checked;
+    // console.log('checked: ', checked);
+    if (checked) {
+      // console.log('add');
+      setFilter([...filter, clickedFilter]);
+    } else if (!checked) {
+      // console.log('remove');
+      const removedFilterArray = filter.filter((element) => element !== clickedFilter);
+      setFilter(removedFilterArray);
+    }
+  }
+
+  useEffect(() => {
+    console.log('filter update: ', filter);
+  }, [filter]);
+
   return (
     <div className="category-filter">
       <div className="category">
@@ -6,8 +30,8 @@ const CategoryFilter = () => {
         <span className="category__plus">+</span>
         <div className="category__dropdown">
           <div className="category__dropdown__item">
-            <input type="checkbox" id="shirts" name="shirts" value="shirts"></input>
-            <label htmlFor="shirts">Shirts</label>
+            <input type="checkbox" id="tops" name="tops" value="tops" onChange={handleInput}></input>
+            <label htmlFor="tops">Tops</label>
           </div>
           <div className="category__dropdown__item">
             <input type="checkbox" id="pants" name="pants" value="pants"></input>

@@ -17,7 +17,7 @@ const Main = (props) => {
   const addOrder = props.addOrder;
   const searchQuery = props.searchQuery;
   const setSearchQuery = props.setSearchQuery;
-  const [filter, setFilter] = useState();
+  const [filter, setFilter] = useState([]);
   const type = props.type;
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Main = (props) => {
 
   return (
     <main className="products-view">
-      <CategoryFilter setFilter={setFilter} />
+      <CategoryFilter filter={filter} setFilter={setFilter} />
         <UsesCartButtonContext.Provider value={{itemCount, setItemCount, orders, replaceOrders, addOrder}}>
           <ProductFilterContext.Provider value={{searchQuery, setSearchQuery, filter}}>
             <Routes>

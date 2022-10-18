@@ -7,37 +7,28 @@ import { getSearchResults } from "../../utils/productUtils";
 import { Link } from "react-router-dom";
 import { Rating } from "./Rating";
 import { AddToCartButton } from "../UI/AddToCartButton";
-import { useLocation, useNavigate } from "react-router-dom";
 import { NoProductMatch } from "../Routes/NoProductMatch";
 
 const FilteredProducts = (props) => {
   const type = props.type;
-  const initialProducts = ClothesAPI.getProductsByType(type);
+  const productsOfType = ClothesAPI.getProductsByType(type);
   const { searchQuery, setSearchQuery, filter } =
     useContext(ProductFilterContext);
-  const [filteredProducts, setFilteredProducts] = useState(initialProducts);
-  const searchResults = getSearchResults(searchQuery, initialProducts);
-  let location = useLocation();
-  const navigate = useNavigate();
+  const [filteredProducts, setFilteredProducts] = useState(productsOfType);
 
   useEffect(() => {
+    // Display search results
     if (searchQuery) {
-      const searchResults = getSearchResults(searchQuery, initialProducts);
+      const searchResults = getSearchResults(searchQuery, productsOfType);
       setFilteredProducts(searchResults);
-    } else {
-      navigate(`/${type}`);
+    }
+    if (filter) {
+      // filter = ["shirts", "pants"]
+      // for each element in filter, filteredProducts.filter([i])
+      
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location]);
-
-  useEffect(() => {
-    if (searchQuery) {
-      setFilteredProducts(searchResults);
-    } else {
-      navigate(`/${type}`);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [searchQuery, filter]);
 
   return (
     <>

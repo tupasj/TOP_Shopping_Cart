@@ -7,7 +7,9 @@
             "alt": "black blazer",
             "rating": 4.5,
             "price": 170,
-            "brandNew": true
+            "brandNew": true,
+            "category": "tops",
+            "style": "semi-formal"
         },
         {
             "id": "14",
@@ -26,7 +28,9 @@
             "alt": "black off-shoulder shirt",
             "rating": 3.5,
             "price": 70,
-            "brandNew": true
+            "brandNew": true,
+            "category": "tops",
+            "style": "casual"
         },
         {
             "id": "16",
@@ -36,7 +40,9 @@
             "rating": 4.0,
             "price": 130,
             "salePrice": 115,
-            "brandNew": false
+            "brandNew": false,
+            "category": "tops",
+            "style": "semi-formal"
         },
         {
             "id": "17",
@@ -45,7 +51,9 @@
             "alt": "checkered coat",
             "rating": 3.5,
             "price": 90,
-            "brandNew": true
+            "brandNew": true,
+            "category": "tops",
+            "style": "casual"
         },
         {
             "id": "18",
@@ -55,7 +63,9 @@
             "rating": 4.0,
             "price": 85,
             "salePrice": 70,
-            "brandNew": false
+            "brandNew": false,
+            "category": "pants",
+            "style": "casual"
         },
         {
             "id": "19",
@@ -64,7 +74,8 @@
             "alt": "flower dress",
             "rating": 4.0,
             "price": 105,
-            "brandNew": true
+            "brandNew": true,
+            "style": "casual"
         },
         {
             "id": "20",
@@ -74,7 +85,9 @@
             "rating": 4.0,
             "price": 110,
             "salePrice": 85,
-            "brandNew": false
+            "brandNew": false,
+            "category": "tops",
+            "style": "casual"
         },
         {
             "id": "21",
@@ -83,7 +96,8 @@
             "alt": "white dress shirt",
             "rating": 5.0,
             "price": 75,
-            "brandNew": true
+            "brandNew": true,
+            "category": "tops"
         },
         {
             "id": "22",
@@ -93,7 +107,9 @@
             "rating": 4.0,
             "price": 70,
             "salePrice": 60,
-            "brandNew": false
+            "brandNew": false,
+            "category": "tops",
+            "style": "casual"
         },
         {
             "id": "23",
@@ -102,7 +118,8 @@
             "alt": "white off shoulder dress",
             "rating": 4.5,
             "price": 135,
-            "brandNew": true
+            "brandNew": true,
+            "style": "casual"
         },
         {
             "id": "24",
