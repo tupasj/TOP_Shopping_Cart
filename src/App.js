@@ -83,7 +83,6 @@ const App = () => {
                 replaceOrders={replaceOrders}
                 addOrder={addOrder}
                 searchQuery={searchQuery}
-                setSearchQuery={setSearchQuery}
                 type={type}
               />
             }

@@ -1,6 +1,6 @@
-import { CategoryFilter } from "./CategoryFilter";
+import { Filter } from "./Filter";
 import { Main } from './Main';
 import { Products } from "./Products";
 import { Rating } from "./Rating";
 
-export { CategoryFilter, Main, Products, Rating };
+export { Filter, Main, Products, Rating };
