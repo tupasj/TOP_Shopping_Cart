@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { ProductFilterContext } from "../../context/ProductFilterContext";
 import { Products } from "./Products";
 import { getFilterCategory, filterbyCategory } from "../../utils/filterUtils";
 
 const FilteredProducts = (props) => {
-  const filter = props.filter;
+  const { filter, removedFilter } = useContext(ProductFilterContext);
   const products = props.products;
   const [filteredProducts, setFilteredProducts] = useState(products);
 
@@ -14,7 +15,12 @@ const FilteredProducts = (props) => {
       const filterValue = filter[i];
       const filterCategory = getFilterCategory(filterValue);
       // Run function
-      const appliedFilter = filterbyCategory(filteredProducts, filterCategory, filterValue); // Filters products array according to current filter.
+      let appliedFilter;
+      if (removedFilter) {
+        appliedFilter = filterbyCategory(filteredProducts, filterCategory, filterValue); // Filters products array according to current filter.
+      } else if (!removedFilter) {
+        appliedFilter = filterbyCategory(products, filterCategory, filterValue);
+      };
 
       setFilteredProducts(appliedFilter);
     }

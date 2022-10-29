@@ -261,6 +261,10 @@ nav > a:hover {
   font-weight: 600;
 }
 
+.category__plus {
+  cursor: pointer;
+}
+
 .category__dropdown__item {
   font-weight: normal;
 }

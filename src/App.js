@@ -59,8 +59,6 @@ const App = () => {
         if (!userOrders) {
           return;
         }
-        console.log("userOrders: ");
-        console.log(userOrders);
         replaceOrders(userOrders);
       } else {
         console.log(`User: 0`);

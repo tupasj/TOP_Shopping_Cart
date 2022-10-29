@@ -1,19 +1,25 @@
+import { useEffect, useContext } from "react";
+import { ProductFilterContext } from "../../context/ProductFilterContext";
+import { useNavigate } from "react-router-dom";
 import { FilteredProducts } from "../Main/FilteredProducts";
 import { Products } from "../Main/Products";
 import { getSearchResults } from "../../utils/productUtils";
 import ClothesAPI from "../../api/ClothesAPI";
-import { useEffect } from "react";
 
 const SearchResults = (props) => {
-  const filter = props.filter;
+  const { filter } = useContext(ProductFilterContext);
   const searchQuery = props.searchQuery;
   const type = props.type;
   const productsOfType = ClothesAPI.getProductsByType(type);
   const searchResults = getSearchResults(searchQuery, productsOfType);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("filter: ", filter);
-  }, [filter]);
+    if (searchResults.length === 0) {
+      navigate('/products-no-match');
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchResults]);
 
   return (
     <>

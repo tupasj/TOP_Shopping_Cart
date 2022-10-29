@@ -23,20 +23,17 @@ const filterbyCategory = (productsToFilter, filterCategory, filterValue) => {
 
   switch (filterCategory) {
     case "stringMatch":
-      console.log("stringMatch");
       appliedFilter = productsToFilter.filter((product) => {
         const matchingKey = getKeyByValue(product, filterValue);
         return matchingKey;
       });
       break;
     case "minIntMatch":
-      console.log("minIntMatch");
       appliedFilter = productsToFilter.filter((product) => {
         return filterValueParsed <= product.rating;
       });
       break;
     case "maxIntMatch":
-      console.log("maxIntMatch");
       appliedFilter = productsToFilter.filter((product) => {
         return filterValueParsed >= product.price;
       });
